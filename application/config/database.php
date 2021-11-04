@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'payment',
+	'hostname' => '151.106.119.126',
+	'username' => 'korpora2018_demo_payment',
+	'password' => 'demo_payment',
+	'database' => 'korpora2018_demo_payment',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
