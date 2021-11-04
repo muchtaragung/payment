@@ -23,7 +23,7 @@ class Notification extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$params = array('server_key' => 'Mid-server-Rbry5_BNNRrhe0MhpO42Cwab', 'production' => true);
+		$params = array('server_key' => 'SB-Mid-server-YsCOcwue1ww_EIOXFrjUS40A', 'production' => false);
 		$this->load->library('veritrans');
 		$this->veritrans->config($params);
 		$this->load->helper('url');
@@ -31,7 +31,7 @@ class Notification extends CI_Controller
 
 	public function index()
 	{
-		echo 'test notification handler';
+		// echo 'test notification handler';
 		$json_result = file_get_contents('php://input');
 		$result = json_decode($json_result, "true");
 
