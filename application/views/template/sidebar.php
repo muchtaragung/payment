@@ -23,17 +23,17 @@
                     <span>Dashboard</span></a>
             </li> -->
         <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('admin_controller') ?>">
+            <a class="nav-link" href="<?= site_url('admin_controller') ?>">
                 <i class="fas fa-key"></i>
                 <span>Event</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('sales') ?>">
+            <a class="nav-link" href="<?= site_url('admin/sales/list') ?>">
                 <i class="fas fa-users"></i>
                 <span>Sales</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('payment_histori') ?>">
+            <a class="nav-link" href="<?= site_url('payment_histori') ?>">
                 <i class="fas fa-money-check-alt"></i>
                 <span>Histori Payment</span></a>
         </li>
