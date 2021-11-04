@@ -7,6 +7,7 @@ class Admin_controller extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_user', 'user');
+        $this->load->model('M_event_product', 'event');
     }
 
     public function index()
@@ -50,10 +51,9 @@ class Admin_controller extends CI_Controller
             'price' => str_replace('.', '', $harga),
             'date_created_events' => date('Y-m-d H:i:s'),
             'id_user' => $this->input->post('id_user'),
-            'id_actionbutton' => $this->input->post('button_action'),
+            'actionbutton' => $this->input->post('button_action'),
         ];
-
-        $this->db->insert('event_product', $data);
+        $this->event->add_event($data);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                         <p>Data telah tersimpan</p></div>');
         redirect('admin_controller');
@@ -64,6 +64,7 @@ class Admin_controller extends CI_Controller
         $data['title'] = "Edit Event";
         $data['data_event'] = $this->m_event_product->data_event_edit($id_event)->row_array();
         $data['action_button'] = $this->m_action_button->data_button()->result_array();
+        $data['user'] = $this->user->get_user()->result();
         $this->load->view('template/header', $data);
         $this->load->view('template/sidebar', $data);
         $this->load->view('template/topbar', $data);
@@ -73,7 +74,7 @@ class Admin_controller extends CI_Controller
 
     public function edit_event()
     {
-        $id_event = $this->input->post('id_event', true);
+        $id = $this->input->post('id_event', true);
         $harga = $this->input->post('harga_event', true);
         $nama_event = $this->input->post('nama_event', true);
         $slug_event = strtolower($nama_event);
@@ -89,20 +90,21 @@ class Admin_controller extends CI_Controller
             'start_end' => $this->input->post('durasi_event', true),
             'price' => str_replace('.', '', $harga),
             'id_user' => $this->input->post('id_user', true),
-            'id_actionbutton' => $this->input->post('button_action', true)
+            'actionbutton' => $this->input->post('button_action', true)
         ];
 
-        $this->db->where('id_events', $id_event);
-        $this->db->update('event_product', $data);
+        $this->event->update_event($id, $data);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                         <p>Data telah tersimpan</p></div>');
         redirect('admin_controller');
     }
 
-    public function delete_event($id_event)
+    public function delete_event($id)
     {
-        $this->db->where('id_events', $id_event);
-        $this->db->delete('event_product');
+        $this->event->delete_event($id);
+        redirect('admin_controller');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+                        <p>Data telah dihapus</p></div>');
         redirect('admin_controller');
     }
 }

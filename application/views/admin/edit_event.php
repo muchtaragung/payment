@@ -18,9 +18,9 @@
             <div class="form-group">
                 <label for="namaEvent">Sales<span style="color: red;">*</span></label>
                 <select required class="select2 form-control" name="id_user" id="id_user">
-                    <option selected value="">Pilih Sales</option>
+                    <option disabled value="">Pilih Sales</option>
                     <?php foreach ($user as $data) { ?>
-                        <option value="<?= $data->id_user ?>"><?= $data->name ?></option>
+                        <option value="<?= $data->id_user; ?>" <?= $data_event['id_user'] == $data->id_user ? 'selected' :  $data->id_user; ?>><?= $data->name ?></option>
                     <?php } ?>
                 </select>
             </div>
@@ -79,14 +79,13 @@
                 <input type="text" class="form-control" name="harga_event" id="rupiah" placeholder="Masukan harga" value="<?= $data_event['price'] ? $data_event['price'] : set_value('harga_event'); ?>">
                 <?= form_error('harga_event', '<small class="text-danger pl-3" >', '</small>'); ?>
             </div>
-
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Call To Action button<span style="color: red;">*</span></label>
-                <select class="form-control" name="button_action" id="exampleFormControlSelect1" required>
-                    <option value="">Silahkan pilih</option>
-                    <?php foreach ($action_button as $data) : ?>
-                        <option value="<?= $data['id_actionbutton']; ?>" <?= $data_event['id_actionbutton'] == $data['id_actionbutton'] ? 'selected' :  $data['id_actionbutton']; ?>><?= $data['call_action_button'] ?></option>
-                    <?php endforeach; ?>
+                <select class="select2 form-control" name="button_action" id="exampleFormControlSelect1" required>
+                    <option disabled selected value="<?= $data_event['actionbutton'] ?>"><?= $data_event['actionbutton'] ?></option>
+                    <option value="Saya Ingin Ini">Saya Ingin Ini</option>
+                    <option value="Order Sekarang">Order Sekarang</option>
+                    <option value="Beli Sekarang">Beli Sekarang</option>
                 </select>
             </div>
 
