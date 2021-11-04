@@ -98,7 +98,7 @@
                         <input type="text" hidden name="hargaevents" id="hargaevents" value="<?= $detail_event['price']; ?>">
                         <input type="text" hidden name="quantityevents" id="quantityevents" value="<?= $detail_event['quantity']; ?>">
 
-                        <button type="submit" class="btn btn-primary btn-block" id="pay-button"><?= $detail_event['call_action_button'] ?></button>
+                        <button type="submit" class="btn btn-primary btn-block" id="pay-button"><?= $detail_event['actionbutton'] ?></button>
                     </form>
                 </div>
             </div>
