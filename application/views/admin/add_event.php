@@ -82,7 +82,7 @@
 
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Call To Action button<span style="color: red;">*</span></label>
-                <select class="select2 form-control" name="button_action" id="exampleFormControlSelect1" required>
+                <select required class="select2 form-control" name="button_action" id="exampleFormControlSelect1" required>
                     <option disabled selected value="">Silahkan pilih</option>
                     <option value="Saya Ingin Ini">Saya Ingin Ini</option>
                     <option value="Order Sekarang">Order Sekarang</option>

@@ -20,6 +20,7 @@ class Event extends CI_Controller
         $data['title'] = $slug;
         $data['detail_event'] = $this->m_event_product->event_detail($slug)->row_array();
         $this->load->view('user_view/event_detail', $data);
+        // $this->load->view('checkout_snap', $data);
     }
 
 
