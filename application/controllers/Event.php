@@ -4,6 +4,23 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Event extends CI_Controller
 {
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Event_model', 'event');
+        $this->load->model('User_model', 'user');
+    }
+
+    public function sales_event($nama)
+    {
+        $slug       = str_replace('-', ' ', $nama);
+        $nama_sales = ucwords($slug);
+
+        $sales = $this->user->get_where(['name' => $nama_sales])->row();
+
+        $data['data_event'] = $this->event->get_where(['id_user' => $sales->id_user])->result();
+        $this->load->view('event/list', $data);
+    }
 
     public function index()
     {

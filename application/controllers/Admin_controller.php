@@ -7,7 +7,8 @@ class Admin_controller extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_user', 'user');
-        $this->load->model('M_event_product', 'event');
+        $this->load->model('M_event_product');
+        $this->load->model('Event_model', 'event');
     }
 
     public function index()
@@ -53,7 +54,7 @@ class Admin_controller extends CI_Controller
             'id_user' => $this->input->post('id_user'),
             'actionbutton' => $this->input->post('button_action'),
         ];
-        $this->event->add_event($data);
+        $this->event->save($data);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                         <p>Data telah tersimpan</p></div>');
         redirect('admin_controller');
