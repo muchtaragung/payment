@@ -27,6 +27,7 @@ class Notification extends CI_Controller
 		$this->load->library('veritrans');
 		$this->veritrans->config($params);
 		$this->load->helper('url');
+		$this->load->model('m_histori_penjualan', 'histori');
 	}
 
 	public function index()
@@ -40,7 +41,8 @@ class Notification extends CI_Controller
 			'status_code' => $result['status_code']
 		];
 		if ($result['status_code'] == 200) {
-			$this->db->update('histori_pesanan', $data, array('order_id' => $order_id));
+			$this->histori->update_status($order_id, $data);
+			// $this->db->update('histori_pesanan', $data, array('order_id' => $order_id));
 		}
 
 		// if ($result) {

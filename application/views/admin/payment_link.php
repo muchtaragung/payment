@@ -16,6 +16,8 @@
                 <tr>
                     <th>No</th>
                     <th>Nama Event</th>
+                    <th>Harga</th>
+                    <th>Tanggal</th>
                     <th>Nama Sales</th>
                     <th>Action</th>
                 </tr>
@@ -26,7 +28,9 @@
                 foreach ($data_event as $data) { ?>
                     <tr>
                         <td><?= $no++ ?></td>
-                        <td><?= $data->nama_events ?></td>
+                        <td><b><?= $data->nama_events ?></b></td>
+                        <td>Rp.<?= number_format($data->price, 0, ",", "."); ?></td>
+                        <td><?= date('d-m-Y', strtotime($data->date_events)); ?></td>
                         <td><?= $data->name ?></td>
                         <td>
                             <a class="btn btn-md btn-info" href="<?= base_url(); ?>admin_controller/form_editevent/<?= $data->id_events; ?>">Edit</a>
