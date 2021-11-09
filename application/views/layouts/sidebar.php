@@ -20,7 +20,7 @@
                     <span>Dashboard</span></a>
             </li> -->
 	<li class="nav-item">
-		<a class="nav-link" href="<?= site_url('admin_controller') ?>">
+		<a class="nav-link" href="<?= site_url('admin/event/list') ?>">
 			<i class="fas fa-key"></i>
 			<span>Event</span></a>
 	</li>

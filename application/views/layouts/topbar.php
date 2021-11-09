@@ -50,7 +50,7 @@
 					Profile
 				</a>
 				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal" style="color: red;">
+				<a class="dropdown-item" href="<?= base_url() ?>auth/logout" style="color: red;">
 					<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>
 					Logout
 				</a>

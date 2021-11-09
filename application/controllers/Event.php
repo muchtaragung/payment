@@ -35,7 +35,16 @@ class Event extends CI_Controller
     public function detail_event($slug)
     {
         $data['title'] = $slug;
-        $data['detail_event'] = $this->m_event_product->event_detail($slug)->row_array();
+        $select = '*';
+        $join = [
+            ['user', 'user.id_user = event.id_user'],
+        ];
+        $where = [
+            'event.slug_event' => $slug
+        ];
+        $data['detail_event'] = $this->event->get_join_where($select, $join, $where)->row_array();
+        // var_dump($data['detail_event']);
+        // die;
         $this->load->view('user_view/event_detail', $data);
         // $this->load->view('checkout_snap', $data);
     }

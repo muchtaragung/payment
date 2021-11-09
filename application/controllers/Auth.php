@@ -46,7 +46,7 @@ class Auth extends CI_Controller
                     $this->session->set_userdata($data);
                     //masuk ke user
                     if ($user['id_role'] == 1) {
-                        redirect('admin_controller');
+                        redirect('admin/event/list');
                     }
                     // else if ($user['id_role'] == 2) {
                     //     redirect('calendar');
@@ -70,7 +70,7 @@ class Auth extends CI_Controller
     public function goToDefaultPage()
     {
         if ($this->session->userdata('id_role') == 1) {
-            redirect('admin_controller');
+            redirect('admin/event/list');
         } else if ($this->session->userdata('id_role') == 2) {
             redirect('calendar');
         } else if ($this->session->userdata('id_role') == 4) {
@@ -193,16 +193,12 @@ class Auth extends CI_Controller
         }
     }
 
-
-
-
     public function logout()
     {
 
-        $this->session->unset_userdata('email');
-        $this->session->unset_userdata('id_role');
+        $this->session->sess_destroy();
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Kamu Telah Keluar</div>');
-        redirect('auth');
+        redirect('login');
     }
 
     public function forgotPassword()

@@ -79,15 +79,6 @@
                 <input type="text" class="form-control" name="harga_event" id="rupiah" placeholder="Masukan harga" value="<?= $data_event['price'] ? $data_event['price'] : set_value('harga_event'); ?>">
                 <?= form_error('harga_event', '<small class="text-danger pl-3" >', '</small>'); ?>
             </div>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Call To Action button<span style="color: red;">*</span></label>
-                <select required class="select2 form-control" name="button_action" id="exampleFormControlSelect1" required>
-                    <option disabled selected value="<?= $data_event['actionbutton'] ?>"><?= $data_event['actionbutton'] ?></option>
-                    <option value="Saya Ingin Ini">Saya Ingin Ini</option>
-                    <option value="Order Sekarang">Order Sekarang</option>
-                    <option value="Beli Sekarang">Beli Sekarang</option>
-                </select>
-            </div>
 
             <button type="submit" class="btn btn-primary btn-lg">Simpan Data</button>
         </form>

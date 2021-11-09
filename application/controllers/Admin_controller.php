@@ -7,14 +7,19 @@ class Admin_controller extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_user', 'user');
-        $this->load->model('M_event_product');
+        // $this->load->model('event');
         $this->load->model('Event_model', 'event');
     }
 
     public function index()
     {
         $data['title'] = "Dashboard";
-        $data['data_event'] = $this->m_event_product->data_event()->result();
+        $select = '*';
+        $join = [
+            ['user', 'user.id_user = event.id_user'],
+        ];
+        $order = ['id_event', 'DESC'];
+        $data['data_event'] = $this->event->get_join_order($select, $join, $order)->result();
         $this->load->view('template/header', $data);
         $this->load->view('template/sidebar', $data);
         $this->load->view('template/topbar', $data);
@@ -57,7 +62,7 @@ class Admin_controller extends CI_Controller
         $this->event->save($data);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                         <p>Data telah tersimpan</p></div>');
-        redirect('admin_controller');
+        redirect('admin_controller/index');
     }
 
     public function form_editevent($id_event)
@@ -97,15 +102,15 @@ class Admin_controller extends CI_Controller
         $this->event->update_event($id, $data);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                         <p>Data telah tersimpan</p></div>');
-        redirect('admin_controller');
+        redirect('admin_controller/index');
     }
 
     public function delete_event($id)
     {
         $this->event->delete_event($id);
-        redirect('admin_controller');
+        redirect('admin_controller/index');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                         <p>Data telah dihapus</p></div>');
-        redirect('admin_controller');
+        redirect('admin_controller/index');
     }
 }
