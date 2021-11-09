@@ -59,7 +59,7 @@ class Event extends CI_Controller
     {
         $event['id_event'] = $this->input->post('id_event');
         $event['nama_event']  = $this->input->post('nama_event');
-        $event['slug_event']  = $this->input->post('email');
+        $event['slug_event']  = str_replace(' ', '-', strtolower($event['nama_event']));
         // $event['image_event'] = $this->_upload();
         $event['description'] = $this->input->post('description');
         $event['quantity']    = $this->input->post('quantity');
