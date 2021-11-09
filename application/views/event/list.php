@@ -36,7 +36,7 @@
                         <div class="row">
                             <a href="<?= base_url('event/detail_event/') ?><?= $data->slug_event; ?>" target="_blank" style="width:100%; padding:2%;" class="produk">
                                 <div class="col-md-12">
-                                    <p><span style="color: black;"><?= $data->nama_events; ?></span> <span class="float-right" style="background-color: green; color:white; padding:1%; border-radius:4px; font-size:15px;">IDR <?= number_format($data->price, 0, ",", "."); ?></span></p>
+                                    <p><span style="color: black;"><?= $data->nama_event; ?></span> <span class="float-right" style="background-color: green; color:white; padding:1%; border-radius:4px; font-size:15px;">IDR <?= number_format($data->price, 0, ",", "."); ?></span></p>
                                     <hr>
                                 </div>
                             </a>

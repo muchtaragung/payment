@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
-    <!-- <meta name="author" content="Created by : Alex Jhosan https://github.com/ajhosan"> -->
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url(); ?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -39,20 +38,20 @@
                     <h6>You are invited to join events</h6>
                     <div class="row" style="margin-bottom: 5%;">
                         <div class="col-md-6">
-                            <p style="font-weight: 700; color:black;"><?= $detail_event['nama_events']; ?></p>
+                            <p style="font-weight: 700; color:black;"><?= $detail_event['nama_event']; ?></p>
                         </div>
                         <div class="col-md-6">
                             <p><span class="float-right" style="background-color: green; color:white; padding:1%; border-radius:4px; font-size:15px;">IDR <?= number_format($detail_event['price'], 0, ",", "."); ?></span></p>
                         </div>
                     </div>
-                    <button class="btn btn-outline-primary btn-block" style="margin-bottom: 5%;" data-toggle="modal" data-target="#showDeskripsi<?= $detail_event['id_events']; ?>">Deskripsi produk</button>
+                    <button class="btn btn-outline-primary btn-block" style="margin-bottom: 5%;" data-toggle="modal" data-target="#showDeskripsi<?= $detail_event['id_event']; ?>">Deskripsi produk</button>
                     <div style="color: black;">
                         <div class="row">
                             <div class="col-md-6">
                                 <p>Tanggal </p>
                             </div>
                             <div class="col-md-6">
-                                <p class="float-right"><?= date('d F Y', strtotime($detail_event['date_events'])); ?></p>
+                                <p class="float-right"><?= date('d F Y', strtotime($detail_event['date_event'])); ?></p>
                             </div>
                         </div>
                         <div class="row">
@@ -60,7 +59,7 @@
                                 <p>Waktu </p>
                             </div>
                             <div class="col-md-6">
-                                <p class="float-right"><?= date('H:i', strtotime($detail_event['start_at'])); ?>-<?= date('H:i', strtotime($detail_event['start_end'])); ?> WIB</p>
+                                <p class="float-right"><?= date('H:i', strtotime($detail_event['start_time'])); ?>-<?= date('H:i', strtotime($detail_event['end_time'])); ?> WIB</p>
                             </div>
                         </div>
                         <hr style="border-top: 1px dashed #193C7F; margin-top:-1%;">
@@ -94,12 +93,12 @@
                             <input type="text" class="form-control" name="notelp" id="notelp" aria-describedby="notelpHelp" required>
                         </div>
                         <!-- Product -->
-                        <input type="text" hidden name="idevents" id="idevents" value="<?= $detail_event['id_events'] ?>">
-                        <input type="text" hidden name="namaevents" id="namaevents" value="<?= $detail_event['nama_events'] ?>">
+                        <input type="text" hidden name="idevents" id="idevents" value="<?= $detail_event['id_event'] ?>">
+                        <input type="text" hidden name="namaevents" id="namaevents" value="<?= $detail_event['nama_event'] ?>">
                         <input type="text" hidden name="hargaevents" id="hargaevents" value="<?= $detail_event['price']; ?>">
                         <input type="text" hidden name="quantityevents" id="quantityevents" value="<?= $detail_event['quantity']; ?>">
 
-                        <button type="submit" class="btn btn-primary btn-block" id="pay-button"><?= $detail_event['actionbutton'] ?></button>
+                        <button type="submit" class="btn btn-primary btn-block" id="pay-button">Pay</button>
                     </form>
                 </div>
             </div>
@@ -107,7 +106,7 @@
     </div>
 
     <!-- Modal Deskripsi -->
-    <div class="modal fade" id="showDeskripsi<?= $detail_event['id_events']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="showDeskripsi<?= $detail_event['id_event']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
