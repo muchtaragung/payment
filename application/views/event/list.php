@@ -31,7 +31,6 @@
             <div style="width:100%; max-width:420px; margin-left:auto; margin-right:auto; background-color:white; border-radius:5px; min-height:100vh;">
                 <img src="https://korporaconsulting.com/wp-content/uploads/2018/04/Untitled-1cc.png" alt="Logo" style="display: block; margin-left: auto; margin-right: auto; margin-top: 10%; margin-bottom: 10%; width:60%;">
                 <?php foreach ($data_event as $data) : ?>
-                    <?php var_dump($data) ?>
                     <div class="card-body" style="margin-bottom:-7%;">
                         <div class="row">
                             <a href="<?= base_url('event/detail_event/') ?><?= $data->slug_event; ?>" target="_blank" style="width:100%; padding:2%;" class="produk">
