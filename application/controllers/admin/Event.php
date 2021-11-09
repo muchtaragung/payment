@@ -38,7 +38,7 @@ class Event extends CI_Controller
         $event['date_event']  = $this->input->post('date_event');
         $event['start_time']  = $this->input->post('start_time');
         $event['end_time']    = $this->input->post('end_time');
-        $event['price']       = $this->input->post('price');
+        $event['price']       = str_replace('.', '', $this->input->post('price'));
         $event['id_user']     = $this->input->post('id_user');
 
         $data = $this->event->save($event);
@@ -50,6 +50,7 @@ class Event extends CI_Controller
     public function edit($id_event)
     {
         $data['event'] = $this->event->get_where(['id_event' => $id_event])->row();
+        $data['user'] = $this->user->get_all()->result();
 
         $this->load->view('admin/event/edit', $data);
     }
@@ -63,14 +64,13 @@ class Event extends CI_Controller
         $event['description'] = $this->input->post('description');
         $event['quantity']    = $this->input->post('quantity');
         $event['link_event']  = $this->input->post('link_event');
-        $event['link_credit'] = $this->input->post('link_credit');
         $event['date_event']  = $this->input->post('date_event');
         $event['start_time']  = $this->input->post('time_event');
         $event['end_time']    = $this->input->post('time_event');
-        $event['price']       = $this->input->post('price');
+        $event['price']       = str_replace('.', '', $this->input->post('price'));
         $event['id_user']     = $this->input->post('id_user');
 
-        $data = $this->event->update($event);
+        $this->event->update($event);
 
         $this->session->set_flashdata('msg', 'Berhasil Mengupdate Data Sales');
 
