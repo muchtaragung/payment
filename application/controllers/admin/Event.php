@@ -38,7 +38,7 @@ class Event extends CI_Controller
         $event['date_event']  = $this->input->post('date_event');
         $event['start_time']  = $this->input->post('start_time');
         $event['end_time']    = $this->input->post('end_time');
-        $event['price']       = $this->input->post('price');
+        $event['price']       = str_replace('.', '', $this->input->post('price'));
         $event['id_user']     = $this->input->post('id_user');
 
         $data = $this->event->save($event);
@@ -67,7 +67,7 @@ class Event extends CI_Controller
         $event['date_event']  = $this->input->post('date_event');
         $event['start_time']  = $this->input->post('time_event');
         $event['end_time']    = $this->input->post('time_event');
-        $event['price']       = $this->input->post('price');
+        $event['price']       = str_replace('.', '', $this->input->post('price'));
         $event['id_user']     = $this->input->post('id_user');
 
         $this->event->update($event);
