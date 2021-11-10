@@ -31,7 +31,7 @@ class Event extends CI_Controller
     {
         $event['nama_event']  = $this->input->post('nama_event');
         $event['slug_event']  = str_replace(' ', '-', strtolower($event['nama_event']));
-        // $event['image_event'] = $this->_upload();
+        $event['image_event'] = $this->_upload();
         $event['description'] = $this->input->post('description');
         $event['quantity']    = $this->input->post('quantity');
         $event['link_event']  = $this->input->post('link_event');
@@ -61,7 +61,7 @@ class Event extends CI_Controller
         $event['id_event'] = $this->input->post('id_event');
         $event['nama_event']  = $this->input->post('nama_event');
         $event['slug_event']  = str_replace(' ', '-', strtolower($event['nama_event']));
-        // $event['image_event'] = $this->_upload();
+        $event['image_event'] = $this->_upload();
         $event['description'] = $this->input->post('description');
         $event['quantity']    = $this->input->post('quantity');
         $event['link_event']  = $this->input->post('link_event');
@@ -87,7 +87,7 @@ class Event extends CI_Controller
 
     private function _upload()
     {
-        $config['upload_path']   = './assets/events/images/';
+        $config['upload_path']   = './upload/events/images/';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['file_name']     = uniqid();
         $config['overwrite']     = true;
@@ -95,8 +95,10 @@ class Event extends CI_Controller
 
         $this->load->library('upload', $config);
 
-        if (!$this->upload->do_upload('image')) {
-            print_r($this->upload->display_errors());
+        if (!$this->upload->do_upload('image_event')) {
+            // print_r($this->upload->display_errors());
+            $this->session->set_flashdata('error', $this->upload->display_errors());
+            return redirect('admin/event/list');
         } else {
             return $this->upload->data("file_name");
         }
