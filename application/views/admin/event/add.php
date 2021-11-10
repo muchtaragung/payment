@@ -43,10 +43,19 @@
                     <div class="card">
                         <div class="card-body">
                             <?= $this->session->flashdata('message'); ?>
-                            <form method="POST" action="<?= base_url('admin/event/save') ?>">
+                            <form method="POST" action="<?= base_url('admin/event/save') ?>" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="namaEvent">Nama Event<span style="color: red;">*</span></label>
                                     <input type="text" class="form-control" name="nama_event" value="<?= set_value('nama_event'); ?>" required>
+                                </div>
+
+                                <div class="form-group text-center">
+                                    <img src="" alt=""id="gambar_load">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="namaEvent">Image Event<span style="color: red;">*</span></label>
+                                    <input type="file" name="image_event" id="preview_gambar" class="form-control" accept=".jpg,.jpeg,.png" required />
                                 </div>
 
                                 <div class="form-group">
@@ -224,6 +233,19 @@
                 });
                 return false;
             });
+        });
+    </script>
+    <script>
+        function bacaGambar(input) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#gambar_load').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        $("#preview_gambar").change(function() {
+            bacaGambar(this);
         });
     </script>
 </body>
