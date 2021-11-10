@@ -29,8 +29,8 @@
                             <td><b><?= $data['nama_customer']; ?></b> </td>
                             <td><?= $data['email_customer']; ?></td>
                             <td><?= $data['no_telp']; ?></td>
-                            <td><?= $data['name']; ?></td>
-                            <td><?= $data['nama_events']; ?></td>
+                            <td><?= $data['nama_sales']; ?></td>
+                            <td><?= $data['nama_event']; ?></td>
                             <td>Rp.<?= number_format($data['price'], 0, ",", "."); ?></td>
                             <td><?= ucfirst(str_replace("_", " ", $data['payment_type'])); ?></td>
                             <td><b><?= strtoupper($data['bank']); ?></b></td>

@@ -124,17 +124,22 @@ class Snap extends CI_Controller
 		// var_dump($result);
 		// die;
 		// echo '</pre>';
-		$namalengkap = $this->input->post('namalengkap');
-		$emailcustomer = $this->input->post('emailcustomer');
-		$notelp = $this->input->post('notelp');
-		$data_event = $this->input->post('idevents');
+		$namalengkap = $this->input->post('namalengkap', true);
+		$emailcustomer = $this->input->post('emailcustomer', true);
+		$notelp = $this->input->post('notelp', true);
+		$data_event = $this->input->post('idevents', true);
+		$nama_sales = $this->input->post('nama_sales', true);
+		$nama_event = $this->input->post('nama_event', true);
+		$price = $this->input->post('price', true);
 
 		$data = [
 			'nama_customer' => $namalengkap,
 			'email_customer' => $emailcustomer,
 			'no_telp' => $notelp,
+			'nama_sales' => $nama_sales,
+			'nama_event' => $nama_event,
+			'price' => $price,
 			'date_created' => date('Y-m-d H:i:s'),
-			'id_events ' => $data_event,
 			'order_id' => $result['order_id'],
 			'gross_amount' => $result['gross_amount'],
 			'payment_type' => $result['payment_type'],

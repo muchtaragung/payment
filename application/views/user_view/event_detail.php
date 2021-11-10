@@ -97,6 +97,9 @@
                         <input type="text" hidden name="namaevents" id="namaevents" value="<?= $detail_event['nama_event'] ?>">
                         <input type="text" hidden name="hargaevents" id="hargaevents" value="<?= $detail_event['price']; ?>">
                         <input type="text" hidden name="quantityevents" id="quantityevents" value="<?= $detail_event['quantity']; ?>">
+                        <input type="text" hidden name="nama_sales" id="id_user" value="<?= $detail_event['name']; ?>">
+                        <input type="text" hidden name="nama_event" id="id_user" value="<?= $detail_event['nama_event']; ?>">
+                        <input type="text" hidden name="price" id="id_user" value="<?= $detail_event['price']; ?>">
 
                         <button type="submit" class="btn btn-primary btn-block" id="pay-button">Pay</button>
                     </form>

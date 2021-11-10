@@ -46,9 +46,6 @@ class Event_model extends CI_Model
         return $this->db->get();
     }
 
-
-
-
     /**
      * mengambil data dengan join, kondisi where dan juga order
      *

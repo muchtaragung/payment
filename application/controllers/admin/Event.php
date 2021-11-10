@@ -49,6 +49,7 @@ class Event extends CI_Controller
 
     public function edit($id_event)
     {
+        $data['title'] = "Edit Event";
         $data['event'] = $this->event->get_where(['id_event' => $id_event])->row();
         $data['user'] = $this->user->get_all()->result();
 
@@ -65,8 +66,8 @@ class Event extends CI_Controller
         $event['quantity']    = $this->input->post('quantity');
         $event['link_event']  = $this->input->post('link_event');
         $event['date_event']  = $this->input->post('date_event');
-        $event['start_time']  = $this->input->post('time_event');
-        $event['end_time']    = $this->input->post('time_event');
+        $event['start_time']  = $this->input->post('start_time');
+        $event['end_time']    = $this->input->post('end_time');
         $event['price']       = str_replace('.', '', $this->input->post('price'));
         $event['id_user']     = $this->input->post('id_user');
 
