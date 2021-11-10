@@ -50,7 +50,7 @@
                                 </div>
 
                                 <div class="form-group text-center">
-                                    <img src="" alt=""id="gambar_load">
+                                    <img src="" alt="" id="gambar_load">
                                 </div>
 
                                 <div class="form-group">
@@ -236,6 +236,8 @@
         });
     </script>
     <script>
+        z
+
         function bacaGambar(input) {
             var reader = new FileReader();
             reader.onload = function(e) {

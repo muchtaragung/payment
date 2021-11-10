@@ -43,10 +43,26 @@
                     <div class="card">
                         <div class="card-body">
                             <?= $this->session->flashdata('message'); ?>
-                            <form method="POST" action="<?= base_url('admin/event/update') ?>">
+                            <form method="POST" action="<?= base_url('admin/event/update') ?>" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="namaEvent">Nama Event<span style="color: red;">*</span></label>
                                     <input type="text" class="form-control" name="nama_event" value="<?= $event->nama_event ?>" required>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-6 form-group text-center shadow">
+                                        <img src="<?= base_url('upload/events/images/' . $event->image_event) ?>" alt="old photo" width="100%">
+                                        <input type="hidden" name="old_image_event" value="<?= $event->image_event ?>">
+                                    </div>
+                                    <div class="col-6 form-group text-center shadow">
+                                        <img src="" alt="new photo" id="gambar_load" width="100%">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="namaEvent">Image Event<span style="color: red;">*</span></label>
+                                    <input type="file" name="image_event" id="preview_gambar" class="form-control" accept=".jpg,.jpeg,.png" />
                                 </div>
 
                                 <div class="form-group">
@@ -224,6 +240,19 @@
                 });
                 return false;
             });
+        });
+    </script>
+    <script>
+        function bacaGambar(input) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#gambar_load').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        $("#preview_gambar").change(function() {
+            bacaGambar(this);
         });
     </script>
 </body>

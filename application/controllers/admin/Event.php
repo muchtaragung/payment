@@ -58,10 +58,15 @@ class Event extends CI_Controller
 
     public function update()
     {
+        if (!empty($_FILES["image_event"]["name"])) {
+            $foto = $this->_upload();
+        } else {
+            $foto = $this->input->post('old_image_event');
+        }
         $event['id_event'] = $this->input->post('id_event');
         $event['nama_event']  = $this->input->post('nama_event');
         $event['slug_event']  = str_replace(' ', '-', strtolower($event['nama_event']));
-        $event['image_event'] = $this->_upload();
+        $event['image_event'] = $foto;
         $event['description'] = $this->input->post('description');
         $event['quantity']    = $this->input->post('quantity');
         $event['link_event']  = $this->input->post('link_event');
