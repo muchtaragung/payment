@@ -18,6 +18,10 @@ class Event extends CI_Controller
 
         $sales = $this->user->get_where(['name' => $nama_sales])->row();
 
+        if ($sales == null) {
+            redirect('');
+        }
+
         $data['data_event'] = $this->event->get_where(['id_user' => $sales->id_user])->result();
         $this->load->view('event/list', $data);
     }
