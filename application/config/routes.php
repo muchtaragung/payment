@@ -54,3 +54,5 @@ $route['default_controller'] = 'event';
 $route['(:any)'] = 'event/sales_event/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['event/(:any)'] = 'event/detail_event/$1';
