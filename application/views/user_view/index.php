@@ -30,13 +30,17 @@
         <div class="card" style="background-color: #193C7F; min-height: 100vh;">
             <div style="width:100%; max-width:420px; margin-left:auto; margin-right:auto; background-color:white; border-radius:5px; min-height:100vh;">
                 <img src="https://korporaconsulting.com/wp-content/uploads/2018/04/Untitled-1cc.png" alt="Logo" style="display: block; margin-left: auto; margin-right: auto; margin-top: 10%; margin-bottom: 10%; width:60%;">
-                <?php foreach ($data_event as $data) : ?>
-
+                <div class="card-body">
+                    <p class="text-center">
+                        Selamat datang di <br><b> PAYMENT KORPORA CONSULTING</b><br>Untuk melanjutkan pembayaran silahkan pilih sales Anda
+                    </p>
+                </div>
+                <?php foreach ($user as $data) : ?>
                     <div class="card-body" style="margin-bottom:-7%;">
                         <div class="row">
-                            <a href="<?= base_url('event/detail_event/') ?><?= $data['slug_event']; ?>" target="_blank" style="width:100%; padding:2%;" class="produk">
+                            <a href="<?= base_url() ?><?= str_replace(' ', '-', strtolower($data->name)); ?>" target="_blank" style="width:100%; padding:2%;" class="produk">
                                 <div class="col-md-12">
-                                    <p><span style="color: black;"><?= $data['nama_event']; ?></span> <span class="float-right" style="background-color: green; color:white; padding:1%; border-radius:4px; font-size:15px;">IDR <?= number_format($data['price'], 0, ",", "."); ?></span></p>
+                                    <p><span style="color: black;"><?= $data->name; ?></span></p>
                                     <hr>
                                 </div>
                             </a>
