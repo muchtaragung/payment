@@ -48,6 +48,14 @@
                     <div style="color: black;">
                         <div class="row">
                             <div class="col-md-6">
+                                <p>Sales </p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="float-right"><?= $detail_event['name']; ?></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
                                 <p>Tanggal </p>
                             </div>
                             <div class="col-md-6">
@@ -90,7 +98,8 @@
                         </div>
                         <div class="form-group">
                             <label for="noTelp">Nomor Telpon</label>
-                            <input type="text" class="form-control" name="notelp" id="notelp" aria-describedby="notelpHelp" required>
+                            <input type="text" name="notelp" class="form-control" id="notelp" onkeypress="return event.charCode >= 48 && event.charCode <=57">
+                            <!-- <input type="text" class="form-control" name="notelp" id="notelp" aria-describedby="notelpHelp" required> -->
                         </div>
                         <!-- Product -->
                         <input type="text" hidden name="idevents" id="idevents" value="<?= $detail_event['id_event'] ?>">
