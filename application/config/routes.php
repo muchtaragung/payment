@@ -49,10 +49,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
+// static 
+$route['success'] = 'event/success_message';
+$route['failed'] = 'event/gagal_message';
 $route['login'] = 'auth';
+
+// defalut bawaan ci
 $route['default_controller'] = 'event';
-$route['(:any)'] = 'event/sales_event/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+// dinamis
+$route['(:any)'] = 'event/sales_event/$1';
 $route['event/(:any)'] = 'event/detail_event/$1';
