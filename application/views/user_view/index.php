@@ -40,13 +40,12 @@
                         <div class="row">
                             <a href="<?= base_url() ?><?= str_replace(' ', '-', strtolower($data->name)); ?>" target="_blank" style="width:100%; padding:2%;" class="produk">
                                 <div class="col-md-12">
-                                    <p><span style="color: black;"><?= $data->name; ?></span></p>
+                                    <p><span style="color: black;"><?= $data->name; ?></span> <span class="float-right" style=" color:black; padding:1%; border-radius:4px; font-size:15px;"> <?= $data->phone ?></span></p>
                                     <hr>
                                 </div>
                             </a>
                         </div>
                     </div>
-
                 <?php endforeach; ?>
             </div>
         </div>
