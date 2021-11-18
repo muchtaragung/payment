@@ -66,4 +66,4 @@ $route['event/index'] = 'event/index';
 
 // dinamis
 $route['(:any)'] = 'event/sales_event/$1';
-$route['event/(:any)'] = 'event/detail_event/$1';
+$route['(:any)/event/(:any)'] = 'event/detail_event/$1/$2';

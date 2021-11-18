@@ -14,7 +14,8 @@ class Histori extends CI_Controller
     public function index()
     {
         $data['title'] = "Payment Histori";
-        $data['histori_pembelian'] = $this->histori->get_all()->result_array();
+        $order = ['id_histori_pesanan', 'DESC'];
+        $data['histori_pembelian'] = $this->histori->get_all_order($order)->result_array();
         $this->load->view('template/header', $data);
         $this->load->view('template/sidebar', $data);
         $this->load->view('template/topbar', $data);
