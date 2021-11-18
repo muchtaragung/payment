@@ -64,6 +64,14 @@ $route['login'] = 'auth';
 $route['event'] = 'event';
 $route['event/index'] = 'event/index';
 
+$route['admin/event/list'] = 'admin/event/list';
+$route['admin/event/update'] = 'admin/event/update';
+$route['admin/event/edit'] = 'admin/event/edit';
+$route['admin/event/delete'] = 'admin/event/delete';
+$route['admin/event/add'] = 'admin/event/add';
+$route['admin/event/save'] = 'admin/event/save';
+
+
 // dinamis
 $route['(:any)'] = 'event/sales_event/$1';
 $route['(:any)/event/(:any)'] = 'event/detail_event/$1/$2';
