@@ -121,33 +121,22 @@ class Snap extends CI_Controller
 	public function finish()
 	{
 		$result = json_decode($this->input->post('result_data'), TRUE);
-		// echo 'RESULT <br><pre>';
-		// var_dump($result);
-		// die;
-		// echo '</pre>';
-		$namalengkap = $this->input->post('namalengkap', true);
-		$emailcustomer = $this->input->post('emailcustomer', true);
-		$notelp = $this->input->post('notelp', true);
-		$data_event = $this->input->post('idevents', true);
-		$nama_sales = $this->input->post('nama_sales', true);
-		$nama_event = $this->input->post('nama_event', true);
-		$price = $this->input->post('price', true);
 
 		$data = [
-			'nama_customer' => $namalengkap,
-			'email_customer' => $emailcustomer,
-			'no_telp' => $notelp,
-			'nama_sales' => $nama_sales,
-			'nama_event' => $nama_event,
-			'price' => $price,
-			'order_id' => $result['order_id'],
-			'gross_amount' => $result['gross_amount'],
-			'payment_type' => $result['payment_type'],
+			'nama_customer'    => $this->input->post('namalengkap', true),
+			'email_customer'   => $this->input->post('emailcustomer', true),
+			'no_telp'          => $this->input->post('notelp', true),
+			'nama_sales'       => $this->input->post('nama_sales', true),
+			'nama_event'       => $this->input->post('nama_event', true),
+			'price'            => $this->input->post('price', true),
+			'order_id'         => $result['order_id'],
+			'gross_amount'     => $result['gross_amount'],
+			'payment_type'     => $result['payment_type'],
 			'transaction_time' => $result['transaction_time'],
-			'bank' => $result['va_numbers'][0]["bank"],
-			'va_number' => $result['va_numbers'][0]["va_number"],
-			'pdf_url' => $result['pdf_url'],
-			'status_code' => $result['status_code']
+			'bank'             => $result['va_numbers'][0]["bank"] || 'bukan bank',
+			'va_number'        => $result['va_numbers'][0]["va_number"] || $result['payment_code'],
+			'pdf_url'          => $result['pdf_url'],
+			'status_code'      => $result['status_code']
 		];
 
 		$simpan = $this->histori->save($data);
