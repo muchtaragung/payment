@@ -30,28 +30,28 @@ class Event extends CI_Controller
         if ($sales == null) {
             redirect('');
         }
+        $select = '*, user.slug as slug_sales';
 
         $join = [
             ['user', 'user.id_user = event.id_user']
         ];
 
-        $data['data_event'] = $this->event->get_join_where('*', $join, ['event.id_user' => $sales->id_user])->result();
+        $data['data_event'] = $this->event->get_join_where($select, $join, ['event.id_user' => $sales->id_user])->result();
         $this->load->view('event/list', $data);
     }
 
 
 
 
-    public function detail_event($sales, $slug)
+    public function detail_event($slug_sales, $slug)
     {
         $data['title'] = $slug;
         $select = '*';
         $join = [
             ['user', 'user.id_user = event.id_user'],
         ];
-        $sales = str_replace('-', ' ', ucwords($sales));
         $where = [
-            'user.name' => $sales,
+            'user.name' => $slug_sales,
             'event.slug_event' => $slug
         ];
         $data['detail_event'] = $this->event->get_join_where($select, $join, $where)->row_array();
