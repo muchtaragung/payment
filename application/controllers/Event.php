@@ -44,12 +44,13 @@ class Event extends CI_Controller
     public function detail_event($slug_sales, $slug)
     {
         $data['title'] = $slug;
-        $select = '*';
-        $join = [
+
+        $select  = '*';
+        $join    = [
             ['user', 'user.id_user = event.id_user'],
         ];
         $where = [
-            'user.slug' => $slug_sales,
+            'user.slug'        => $slug_sales,
             'event.slug_event' => $slug
         ];
         $data['detail_event'] = $this->event->get_join_where($select, $join, $where)->row_array();
