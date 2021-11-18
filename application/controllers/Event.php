@@ -31,7 +31,11 @@ class Event extends CI_Controller
             redirect('');
         }
 
-        $data['data_event'] = $this->event->get_where(['id_user' => $sales->id_user])->result();
+        $join = [
+            ['user', 'user.id_user = event.id_user']
+        ];
+
+        $data['data_event'] = $this->event->get_join_where('*', $join, ['event.id_user' => $sales->id_user])->result();
         $this->load->view('event/list', $data);
     }
 
