@@ -51,7 +51,7 @@ class Event extends CI_Controller
             ['user', 'user.id_user = event.id_user'],
         ];
         $where = [
-            'user.name' => $slug_sales,
+            'user.slug' => $slug_sales,
             'event.slug_event' => $slug
         ];
         $data['detail_event'] = $this->event->get_join_where($select, $join, $where)->row_array();
