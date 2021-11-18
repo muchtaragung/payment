@@ -27,6 +27,7 @@ class Snap extends CI_Controller
 		$this->load->library('midtrans');
 		$this->midtrans->config($params);
 		$this->load->helper('url');
+		$this->load->model('histori_model', 'histori');
 	}
 
 	public function index()
@@ -149,7 +150,7 @@ class Snap extends CI_Controller
 			'status_code' => $result['status_code']
 		];
 
-		$simpan = $this->db->insert('histori_pesanan', $data);
+		$simpan = $this->histori->save($data);
 		if ($simpan) {
 			redirect('event/success_message');
 		} else {
