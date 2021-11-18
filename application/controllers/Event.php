@@ -11,6 +11,15 @@ class Event extends CI_Controller
         $this->load->model('User_model', 'user');
     }
 
+    public function index()
+    {
+        $data['title'] = "Dashboard";
+        $data['user'] = $this->user->get_all()->result();
+        $data['data_event'] = $this->m_event_product->data_event()->result_array();
+        $data['data_link'] = $this->m_link_url->data_link()->result_array();
+        $this->load->view('user_view/index', $data);
+    }
+
     public function sales_event($nama)
     {
         $slug       = str_replace('-', ' ', $nama);
@@ -26,14 +35,7 @@ class Event extends CI_Controller
         $this->load->view('event/list', $data);
     }
 
-    public function index()
-    {
-        $data['title'] = "Dashboard";
-        $data['user'] = $this->user->get_all()->result();
-        $data['data_event'] = $this->m_event_product->data_event()->result_array();
-        $data['data_link'] = $this->m_link_url->data_link()->result_array();
-        $this->load->view('user_view/index', $data);
-    }
+
 
 
     public function detail_event($slug)
