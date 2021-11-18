@@ -139,7 +139,6 @@ class Snap extends CI_Controller
 			'nama_sales' => $nama_sales,
 			'nama_event' => $nama_event,
 			'price' => $price,
-			'date_created' => date('Y-m-d H:i:s'),
 			'order_id' => $result['order_id'],
 			'gross_amount' => $result['gross_amount'],
 			'payment_type' => $result['payment_type'],
