@@ -15,8 +15,6 @@ class Event extends CI_Controller
     {
         $data['title'] = "Dashboard";
         $data['user'] = $this->user->get_all()->result();
-        $data['data_event'] = $this->m_event_product->data_event()->result_array();
-        $data['data_link'] = $this->m_link_url->data_link()->result_array();
         $this->load->view('user_view/index', $data);
     }
 

@@ -59,7 +59,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 // static 
 $route['success'] = 'event/success_message';
-$route['failed'] = 'event/gagal_message';
+// $route['failed'] = 'event/gagal_message';
 $route['login'] = 'auth';
 $route['event'] = 'event';
 $route['event/index'] = 'event/index';
@@ -75,3 +75,4 @@ $route['admin/event/save'] = 'admin/event/save';
 // dinamis
 $route['(:any)'] = 'event/sales_event/$1';
 $route['(:any)/event/(:any)'] = 'event/detail_event/$1/$2';
+$route['pemesanan/(:any)'] = 'pemesanan/cari/$1';

@@ -128,7 +128,6 @@ class Snap extends CI_Controller
 		$namalengkap = $this->input->post('namalengkap', true);
 		$emailcustomer = $this->input->post('emailcustomer', true);
 		$notelp = $this->input->post('notelp', true);
-		$data_event = $this->input->post('idevents', true);
 		$nama_sales = $this->input->post('nama_sales', true);
 		$nama_event = $this->input->post('nama_event', true);
 		$price = $this->input->post('price', true);
@@ -150,11 +149,9 @@ class Snap extends CI_Controller
 			'status_code' => $result['status_code']
 		];
 
-		$simpan = $this->histori->save($data);
-		if ($simpan) {
+		$this->histori->save($data);
+		if ($result['payment_type'] == 'bank_transfer') {
 			redirect('event/success_message');
-		} else {
-			redirect('event/gagal_message');
 		}
 	}
 }
