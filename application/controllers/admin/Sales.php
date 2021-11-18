@@ -19,8 +19,8 @@ class Sales extends CI_Controller
     {
         $user['name']  = $this->input->post('name');
         $user['name']  = ucwords($this->input->post('name'));
+        $user['slug'] = url_title($this->input->post('name'), 'dash', true);
         $user['phone'] = $this->input->post('phone');
-
         $data = $this->user->save($user);
 
         $this->session->set_flashdata('msg', 'Berhasil Membuat Data Sales');
@@ -38,6 +38,7 @@ class Sales extends CI_Controller
     {
         $user['id_user']    = $this->input->post('id_user');
         $user['name']  = ucwords($this->input->post('name'));
+        $user['slug'] = url_title($this->input->post('name'), 'dash', true);
         $user['email'] = $this->input->post('email');
         $user['phone'] = $this->input->post('phone');
 
