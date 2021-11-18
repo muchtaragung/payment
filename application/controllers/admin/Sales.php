@@ -18,7 +18,7 @@ class Sales extends CI_Controller
     public function save()
     {
         $user['name']  = $this->input->post('name');
-        $user['email'] = $this->input->post('email');
+        $user['name']  = ucwords($this->input->post('name'));
         $user['phone'] = $this->input->post('phone');
 
         $data = $this->user->save($user);
@@ -37,7 +37,7 @@ class Sales extends CI_Controller
     public function update()
     {
         $user['id_user']    = $this->input->post('id_user');
-        $user['name']  = $this->input->post('name');
+        $user['name']  = ucwords($this->input->post('name'));
         $user['email'] = $this->input->post('email');
         $user['phone'] = $this->input->post('phone');
 
