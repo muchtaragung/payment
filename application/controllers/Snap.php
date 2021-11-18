@@ -38,17 +38,17 @@ class Snap extends CI_Controller
 	public function token()
 	{
 
-		$namalengkap = $this->input->post('namalengkap');
-		$emailcustomer = $this->input->post('emailcustomer');
-		$notelp = $this->input->post('notelp');
-		$namaevents = $this->input->post('namaevents');
-		$hargaevents = $this->input->post('hargaevents');
+		$namalengkap    = $this->input->post('namalengkap');
+		$emailcustomer  = $this->input->post('emailcustomer');
+		$notelp         = $this->input->post('notelp');
+		$namaevents     = $this->input->post('namaevents');
+		$hargaevents    = $this->input->post('hargaevents');
 		$quantityevents = $this->input->post('quantityevents');
 
 		// Required
 		$transaction_details = array(
-			'order_id' => rand(),
-			'gross_amount' => $hargaevents, // no decimal allowed for creditcard
+			'order_id'     => rand(),
+			'gross_amount' => $hargaevents,   // no decimal allowed for creditcard
 		);
 
 		// Optional
@@ -106,10 +106,10 @@ class Snap extends CI_Controller
 
 		$transaction_data = array(
 			'transaction_details' => $transaction_details,
-			'item_details'       => $item_details,
-			'customer_details'   => $customer_details,
-			'credit_card'        => $credit_card,
-			'expiry'             => $custom_expiry
+			'item_details'        => $item_details,
+			'customer_details'    => $customer_details,
+			'credit_card'         => $credit_card,
+			'expiry'              => $custom_expiry
 		);
 
 		error_log(json_encode($transaction_data));
