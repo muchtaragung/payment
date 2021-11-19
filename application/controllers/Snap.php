@@ -38,17 +38,17 @@ class Snap extends CI_Controller
 	public function token()
 	{
 
-		$namalengkap    = $this->input->post('namalengkap');
-		$emailcustomer  = $this->input->post('emailcustomer');
-		$notelp         = $this->input->post('notelp');
-		$namaevents     = $this->input->post('namaevents');
-		$hargaevents    = $this->input->post('hargaevents');
+		$namalengkap = $this->input->post('namalengkap');
+		$emailcustomer = $this->input->post('emailcustomer');
+		$notelp = $this->input->post('notelp');
+		$namaevents = $this->input->post('namaevents');
+		$hargaevents = $this->input->post('hargaevents');
 		$quantityevents = $this->input->post('quantityevents');
 
 		// Required
 		$transaction_details = array(
-			'order_id'     => rand(),
-			'gross_amount' => $hargaevents,   // no decimal allowed for creditcard
+			'order_id' => rand(),
+			'gross_amount' => $hargaevents, // no decimal allowed for creditcard
 		);
 
 		// Optional
@@ -106,10 +106,10 @@ class Snap extends CI_Controller
 
 		$transaction_data = array(
 			'transaction_details' => $transaction_details,
-			'item_details'        => $item_details,
-			'customer_details'    => $customer_details,
-			'credit_card'         => $credit_card,
-			'expiry'              => $custom_expiry
+			'item_details'       => $item_details,
+			'customer_details'   => $customer_details,
+			'credit_card'        => $credit_card,
+			'expiry'             => $custom_expiry
 		);
 
 		error_log(json_encode($transaction_data));
@@ -122,11 +122,25 @@ class Snap extends CI_Controller
 	{
 		$result = json_decode($this->input->post('result_data'), TRUE);
 
+
 		$data = [
+			'nama_customer'    => $this->input->post('namalengkap', true),
+			'email_customer'   => $this->input->post('emailcustomer', true),
+			'no_telp'          => $this->input->post('notelp', true),
+			'nama_sales'       => $this->input->post('nama_sales', true),
+			'nama_event'       => $this->input->post('nama_event', true),
+			'price'            => $this->input->post('price', true),
+			'order_id'         => $result['order_id'],
+			'gross_amount'     => $result['gross_amount'],
+			'payment_type'     => $result['payment_type'],
 			'transaction_time' => $result['transaction_time'],
+			'bank'             => $result['va_numbers'][0]["bank"],
+			'va_number'        => $result['va_numbers'][0]["va_number"],
+			'pdf_url'          => $result['pdf_url'],
+			'status_code'      => $result['status_code']
 		];
 
-			redirect('event/success_message');
-		}
+		$this->histori->save($data);
+		redirect('event/success_message');
 	}
 }
