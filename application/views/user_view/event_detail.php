@@ -39,7 +39,7 @@
                     <div class="row" style="margin-bottom: 5%;">
                         <div class="col-md-12 mb-3">
                             <center>
-                                <img class="img-fluid" src="<?= base_url() ?>upload/events/images/<?= $detail_event['image_event']; ?>" alt="" srcset="">
+                                <img class="img-fluid rounded" src="<?= base_url() ?>upload/events/images/<?= $detail_event['image_event']; ?>" alt="" srcset="">
                             </center>
                         </div>
                         <div class="col-md-6">

@@ -38,7 +38,7 @@
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <center>
-                                                <img class="img-fluid" style="width: 100px;" src="<?= base_url() ?>upload/events/images/<?= $data->image_event; ?>" alt="" srcset="">
+                                                <img class="img-fluid rounded" style="width: 100px;" src="<?= base_url() ?>upload/events/images/<?= $data->image_event; ?>" alt="" srcset="">
                                             </center>
                                         </div>
                                         <div class="col-sm-6">
