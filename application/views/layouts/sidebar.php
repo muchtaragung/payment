@@ -20,15 +20,16 @@
                     <span>Dashboard</span></a>
             </li> -->
 	<li class="nav-item">
-		<a class="nav-link" href="<?= site_url('admin/event/list') ?>">
-			<i class="fas fa-key"></i>
-			<span>Event</span></a>
-	</li>
-	<li class="nav-item">
 		<a class="nav-link" href="<?= site_url('admin/sales/list') ?>">
 			<i class="fas fa-users"></i>
 			<span>Sales</span></a>
 	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="<?= site_url('admin/event/list') ?>">
+			<i class="fas fa-key"></i>
+			<span>Event</span></a>
+	</li>
+
 	<li class="nav-item">
 		<a class="nav-link" href="<?= site_url('admin/histori') ?>">
 			<i class="fas fa-money-check-alt"></i>
