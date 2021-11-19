@@ -79,6 +79,8 @@
                                 <p><span class="float-right" style="background-color: yellow; color:black; padding:1%; border-radius:4px; font-size:15px;">Pending</span></p>
                             <?php elseif ($pesanan->status_code == 200) : ?>
                                 <p><span class="float-right" style="background-color: green; color:white; padding:1%; border-radius:4px; font-size:15px;">Success</span></p>
+                            <?php elseif ($pesanan->status_code == 202) : ?>
+                                <p><span class="float-right" style="background-color: red; color:black; padding:1%; border-radius:4px; font-size:15px;">Failure</span></p>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -110,7 +112,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="btn btn-primary btn-block" href="<?= base_url('event'); ?>">Kembali ke menu utama</a>
+                    <a class="btn btn-primary btn-block" href="<?= base_url(); ?>">Kembali ke menu utama</a>
                 </div>
             </div>
         </div>

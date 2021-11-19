@@ -21,7 +21,7 @@ class Pemesanan extends CI_Controller
             $this->load->view('user_view/histori_pemesanan', $data);
         } else {
             $this->session->set_flashdata('error', 'Data tidak ditemukan');
-            return redirect('event');
+            return redirect(base_url());
         }
     }
 }

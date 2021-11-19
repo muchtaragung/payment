@@ -33,7 +33,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <p class="alert alert-success text-center"><span style="color: black;">Terima kasih<br>Silahkan cek email Anda<i class="fas fa-mobile-android-alt"></i></span></p>
-                            <a class="btn btn-primary btn-block" href="<?= base_url('event'); ?>">Kembali ke menu utama</a>
+                            <a class="btn btn-primary btn-block" href="<?= base_url(); ?>">Kembali ke menu utama</a>
                             <hr>
                         </div>
                     </div>
