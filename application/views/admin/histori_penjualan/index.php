@@ -1,6 +1,27 @@
 <!-- Page Heading -->
 <h1 class="h3 mb-2" style="text-align: center; background-color:#2043E5; padding:1%; font-weight:700; color:white;">HISTORI PEMBELIAN</h1>
-
+<h4 class="mt-2">Export</h4>
+<form action="<?= site_url('admin/histori/export') ?>" method="post">
+    <div class="row mb-2">
+        <div class="col-lg-4">
+            <input type="date" name="date_start" id="" class="form-control">
+        </div>
+        <div class="col-lg-4">
+            <input type="date" name="date_end" id="" class="form-control">
+        </div>
+        <div class="col-2">
+            <select name="sales" id="" class="form-control">
+                <option value="">Semua Sales</option>
+                <?php foreach ($sales as $s) : ?>
+                    <option value="<?= $s['name'] ?>"><?= $s['name'] ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <button type="submit" class="btn btn-primary w-100">Export</button>
+        </div>
+    </div>
+</form>
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-body">
