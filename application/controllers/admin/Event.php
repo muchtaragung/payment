@@ -33,7 +33,7 @@ class Event extends CI_Controller
         $event['slug_event']  = str_replace(' ', '-', strtolower($event['nama_event']));
         $event['image_event'] = $this->_upload();
         $event['description'] = $this->input->post('description');
-        $event['quantity']    = $this->input->post('quantity');
+        $event['quantity']    = 1;
         $event['link_event']  = $this->input->post('link_event');
         $event['date_event']  = $this->input->post('date_event');
         $event['start_time']  = $this->input->post('start_time');
@@ -68,7 +68,7 @@ class Event extends CI_Controller
         $event['slug_event']  = str_replace(' ', '-', strtolower($event['nama_event']));
         $event['image_event'] = $foto;
         $event['description'] = $this->input->post('description');
-        $event['quantity']    = $this->input->post('quantity');
+        $event['quantity']    = 1;
         $event['link_event']  = $this->input->post('link_event');
         $event['date_event']  = $this->input->post('date_event');
         $event['start_time']  = $this->input->post('start_time');
