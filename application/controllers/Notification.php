@@ -42,8 +42,8 @@ class Notification extends CI_Controller
 			'status_code' => $result['status_code']
 		];
 		if ($result['status_code'] == 200) {
-			$this->histori->update_where($where, $data);
-			// $this->db->update('histori_pesanan', $data, array('order_id' => $result['order_id']));
+			// $this->histori->update_where($where, $data);
+			$this->db->update('histori_pesanan', $data, array('order_id' => $result['order_id']));
 		}
 
 		// if ($result) {
