@@ -63,7 +63,7 @@ $route['failed']       = 'event/gagal_message';
 $route['login']        = 'auth';
 $route['event']        = 'event';
 $route['event/index']  = 'event/index';
-$route['notification'] = 'notification';
+$route['notification'] = 'notification/index';
 
 $route['admin/event/list']   = 'admin/event/list';
 $route['admin/event/update'] = 'admin/event/update';
