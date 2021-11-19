@@ -34,17 +34,26 @@
                     <div class="card-body" style="margin-bottom:-7%;">
                         <div class="row">
                             <a href="<?= base_url() ?><?= $data->slug_sales ?>/event/<?= $data->slug_event; ?>" target="_blank" style="width:100%; padding:2%;" class="produk">
-                                <div class="col-md-12">
-                                    <p><span style="color: black;"><?= $data->nama_event; ?></span> <span class="float-right" style="background-color: green; color:white; padding:1%; border-radius:4px; font-size:15px;">IDR <?= number_format($data->price, 0, ",", "."); ?></span></p>
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <center>
+                                                <img class="img-fluid" style="width: 100px;" src="<?= base_url() ?>upload/events/images/<?= $data->image_event; ?>" alt="" srcset="">
+                                            </center>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="text-center"><span style="color: black;"><?= $data->nama_event; ?></span></p>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <p><span class="float-right" style="background-color: green; color:white; padding:1%; border-radius:4px; font-size:15px;">IDR <?= number_format($data->price, 0, ",", "."); ?></span></p>
+                                        </div>
+                                    </div>
                                     <hr>
                                 </div>
                             </a>
                         </div>
                     </div>
-
                 <?php endforeach; ?>
-
-
             </div>
         </div>
     </div>

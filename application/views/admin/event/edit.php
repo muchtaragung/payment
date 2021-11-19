@@ -96,22 +96,16 @@
                                             <input type="date" class="form-control" name="date_event" value="<?= $event->date_event ?>">
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="namaEvent">Start time<span style="color: red;">*</span></label>
                                             <input type="time" class="form-control" name="start_time" value="<?= $event->start_time ?>">
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="namaEvent">End Time<span style="color: red;">*</span></label>
                                             <input type="time" class="form-control" name="end_time" value="<?= $event->end_time ?>">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label for="namaEvent">Quantity<span style="color: red;">*</span></label>
-                                            <input type="number" class="form-control" name="quantity" placeholder="1" required value="<?= $event->quantity ?>">
                                         </div>
                                     </div>
                                 </div>

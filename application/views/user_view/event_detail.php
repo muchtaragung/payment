@@ -37,6 +37,11 @@
                 <div class="card-body" style="margin-bottom:-7%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin:2%;">
                     <h6>You are invited to join events</h6>
                     <div class="row" style="margin-bottom: 5%;">
+                        <div class="col-md-12 mb-3">
+                            <center>
+                                <img class="img-fluid" src="<?= base_url() ?>upload/events/images/<?= $detail_event['image_event']; ?>" alt="" srcset="">
+                            </center>
+                        </div>
                         <div class="col-md-6">
                             <p style="font-weight: 700; color:black;"><?= $detail_event['nama_event']; ?></p>
                         </div>
