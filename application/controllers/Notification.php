@@ -42,12 +42,13 @@ class Notification extends CI_Controller
 			'status_code' => $result['status_code']
 		];
 		if ($result['status_code'] == 200) {
-			$this->histori->update_where($where, $data);
+			$this->histori->update_where($data, $where);
 			// $this->db->update('histori_pesanan', $data, array('order_id' => $result['order_id']));
 		} elseif ($result['status_code'] == 202) {
-			$this->histori->update_where($where, $data);
+			$this->histori->update_where($data, $where);
 		}
 
+		// error_log(print_r($result, TRUE));
 		// if ($result) {
 		// 	$notif = $this->veritrans->status($result->order_id);
 		// }
