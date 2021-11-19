@@ -53,23 +53,24 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 
 // defalut bawaan ci
-$route['default_controller'] = 'event';
-$route['404_override'] = '';
+$route['default_controller']   = 'event';
+$route['404_override']         = '';
 $route['translate_uri_dashes'] = FALSE;
 
 // static 
-$route['success'] = 'event/success_message';
-// $route['failed'] = 'event/gagal_message';
-$route['login'] = 'auth';
-$route['event'] = 'event';
-$route['event/index'] = 'event/index';
+$route['success']      = 'event/success_message';
+$route['failed']       = 'event/gagal_message';
+$route['login']        = 'auth';
+$route['event']        = 'event';
+$route['event/index']  = 'event/index';
+$route['notification'] = 'notification';
 
-$route['admin/event/list'] = 'admin/event/list';
+$route['admin/event/list']   = 'admin/event/list';
 $route['admin/event/update'] = 'admin/event/update';
-$route['admin/event/edit'] = 'admin/event/edit';
+$route['admin/event/edit']   = 'admin/event/edit';
 $route['admin/event/delete'] = 'admin/event/delete';
-$route['admin/event/add'] = 'admin/event/add';
-$route['admin/event/save'] = 'admin/event/save';
+$route['admin/event/add']    = 'admin/event/add';
+$route['admin/event/save']   = 'admin/event/save';
 
 
 // dinamis
