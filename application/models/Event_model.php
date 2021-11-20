@@ -40,7 +40,7 @@ class Event_model extends CI_Model
         $this->db->select($select);
         $this->db->from($this->table);
         foreach ($join as $data) {
-            $this->db->join($data[0], $data[1]);
+            $this->db->join($data[0], $data[1], 'left');
         }
         $this->db->where($where);
         return $this->db->get();
