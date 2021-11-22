@@ -40,7 +40,7 @@ class Histori extends CI_Controller
             $where['nama_sales'] = $sales;
         }
         if ($status != "") {
-            $where['status'] = $status;
+            $where['status_code'] = $status;
         }
         $histori = $this->histori->get_where($where)->result();
 
