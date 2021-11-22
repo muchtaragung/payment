@@ -72,7 +72,7 @@ class Histori extends CI_Controller
                 $status = "Success";
             }
             if ($data->status_code == 202) {
-                $status = "Pailure";
+                $status = "Failure";
             }
 
 
