@@ -3,10 +3,10 @@
 <h4 class="mt-2">Export</h4>
 <form action="<?= site_url('admin/histori/export') ?>" method="post">
     <div class="row mb-2">
-        <div class="col-lg-4">
+        <div class="col-3">
             <input type="date" name="date_start" id="" class="form-control">
         </div>
-        <div class="col-lg-4">
+        <div class="col-3">
             <input type="date" name="date_end" id="" class="form-control">
         </div>
         <div class="col-2">
@@ -17,7 +17,15 @@
                 <?php endforeach; ?>
             </select>
         </div>
-        <div class="col-lg-2">
+        <div class="col-2">
+            <select name="status" id="" class="form-control">
+                <option value="">Semua Sales</option>
+                <option value="200">Sukses</option>
+                <option value="201">Pending</option>
+                <option value="202">Pailure</option>
+            </select>
+        </div>
+        <div class="col-2">
             <button type="submit" class="btn btn-primary w-100">Export</button>
         </div>
     </div>
