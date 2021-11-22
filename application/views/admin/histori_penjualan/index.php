@@ -3,11 +3,12 @@
 <h4 class="mt-2">Export</h4>
 <form action="<?= site_url('admin/histori/export') ?>" method="post">
     <div class="row mb-2">
+
         <div class="col-lg-4">
-            <input type="date" name="date_start" id="" class="form-control">
+            <input type="date" name="date_start" id="date_start" required class="form-control">
         </div>
         <div class="col-lg-4">
-            <input type="date" name="date_end" id="" class="form-control">
+            <input type="date" name="date_end" id="date_end" required class="form-control">
         </div>
         <div class="col-2">
             <select name="sales" id="" class="form-control">
@@ -18,7 +19,7 @@
             </select>
         </div>
         <div class="col-lg-2">
-            <button type="submit" class="btn btn-primary w-100">Export</button>
+            <button type="submit" id="button_export" class="btn btn-primary w-100">Export</button>
         </div>
     </div>
 </form>
