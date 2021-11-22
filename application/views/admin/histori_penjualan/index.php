@@ -62,7 +62,7 @@
                                     <p class="badge badge-warning">Pending</p>
                                 <?php elseif ($data['status_code'] == 200) : ?>
                                     <p class="badge badge-success">Success <i class="far fa-check-circle"></i></p>
-                                <?php elseif ($pesanan->status_code == 202) : ?>
+                                <?php elseif ($data['status_code'] == 202) : ?>
                                     <p class="badge badge-danger">Failure</p>
                                 <?php endif; ?>
                             </td>
