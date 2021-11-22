@@ -68,6 +68,26 @@ class User_model extends CI_Model
         $this->db->order_by($order[0], $order[1]);
         return $this->db->get();
     }
+    /**
+     * mengambil data dengan join, kondisi order
+     *
+     * @param String $select
+     * @param Array $join
+     * @param Array $where
+     * @param Array $order
+     *
+     * @return void
+     */
+    public function get_join_order($select, $join, $order)
+    {
+        $this->db->select($select);
+        $this->db->from($this->table);
+        foreach ($join as $data) {
+            $this->db->join($data[0], $data[1], 'left');
+        }
+        $this->db->order_by($order[0], $order[1]);
+        return $this->db->get();
+    }
 
     /**
      * mengambil semua data tabel
