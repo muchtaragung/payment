@@ -32,11 +32,15 @@ class Histori extends CI_Controller
         $date_start = $this->input->post('date_start');
         $date_end   = $this->input->post('date_end');
         $sales      = $this->input->post('sales');
+        $status     = $this->input->post('status');
 
         $where['created_at >='] = $date_start;
         $where['created_at <='] = $date_end;
         if ($sales != "") {
             $where['nama_sales'] = $sales;
+        }
+        if ($status != "") {
+            $where['status'] = $status;
         }
         $histori = $this->histori->get_where($where)->result();
 
@@ -66,6 +70,9 @@ class Histori extends CI_Controller
             }
             if ($data->status_code == 200) {
                 $status = "Success";
+            }
+            if ($data->status_code == 202) {
+                $status = "Pailure";
             }
 
 
