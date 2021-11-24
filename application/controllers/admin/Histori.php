@@ -44,6 +44,14 @@ class Histori extends CI_Controller
         }
         $histori = $this->histori->get_where($where)->result();
 
+        if ($this->input->post('export') == 'all') {
+            $histori = $this->histori->get_all()->result();
+        } else {
+            $histori = $this->histori->get_where($where)->result();
+        }
+
+
+
         $spreadsheet = new Spreadsheet;
 
         $spreadsheet->setActiveSheetIndex(0)
