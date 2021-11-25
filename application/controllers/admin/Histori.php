@@ -11,6 +11,9 @@ class Histori extends CI_Controller
         parent::__construct();
         $this->load->model('histori_model', 'histori');
         $this->load->model('user_model', 'user');
+        if (!$this->session->userdata('logged_in')) {
+            redirect('login');
+        }
     }
 
 
