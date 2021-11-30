@@ -4,12 +4,15 @@
 <form action="<?= site_url('admin/histori/export') ?>" method="post">
     <div class="row mb-2">
         <div class="col-3">
+            <label for="">Tanggal Mulai</label>
             <input type="date" name="date_start" id="" class="form-control">
         </div>
         <div class="col-3">
+            <label for="">Tanggal Akhir</label>
             <input type="date" name="date_end" id="" class="form-control">
         </div>
-        <div class="col-2">
+        <div class="col-3">
+            <label for="">Sales</label>
             <select name="sales" id="" class="form-control">
                 <option value="">Semua Sales</option>
                 <?php foreach ($sales as $s) : ?>
@@ -17,16 +20,22 @@
                 <?php endforeach; ?>
             </select>
         </div>
-        <div class="col-2">
+        <div class="col-3">
+            <label for="">Status Pesanan</label>
             <select name="status" id="" class="form-control">
-                <option value="">Semua Sales</option>
+                <option value="">Semua Status</option>
                 <option value="200">Sukses</option>
                 <option value="201">Pending</option>
-                <option value="202">Pailure</option>
+                <option value="202">Failure</option>
             </select>
         </div>
-        <div class="col-2">
+        <div class="col-6">
+            <label for="">-</label>
             <button type="submit" class="btn btn-primary w-100">Export</button>
+        </div>
+        <div class="col-6">
+            <label for="">-</label>
+            <button type="submit" name="export" value="all" class="btn btn-primary w-100">Export All</button>
         </div>
     </div>
 </form>

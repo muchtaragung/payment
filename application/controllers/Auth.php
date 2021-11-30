@@ -40,8 +40,8 @@ class Auth extends CI_Controller
                     $data = [
                         'email' => $user['email'],
                         'nama' => $user['name'],
-                        'id_role' => $user['id_role']
-
+                        'id_role' => $user['id_role'],
+                        'logged_in' => true
                     ];
                     $this->session->set_userdata($data);
                     //masuk ke user

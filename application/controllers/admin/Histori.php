@@ -11,6 +11,9 @@ class Histori extends CI_Controller
         parent::__construct();
         $this->load->model('histori_model', 'histori');
         $this->load->model('user_model', 'user');
+        if (!$this->session->userdata('logged_in')) {
+            redirect('login');
+        }
     }
 
 
@@ -40,9 +43,17 @@ class Histori extends CI_Controller
             $where['nama_sales'] = $sales;
         }
         if ($status != "") {
-            $where['status'] = $status;
+            $where['status_code'] = $status;
         }
         $histori = $this->histori->get_where($where)->result();
+
+        if ($this->input->post('export') == 'all') {
+            $histori = $this->histori->get_all()->result();
+        } else {
+            $histori = $this->histori->get_where($where)->result();
+        }
+
+
 
         $spreadsheet = new Spreadsheet;
 
@@ -72,7 +83,7 @@ class Histori extends CI_Controller
                 $status = "Success";
             }
             if ($data->status_code == 202) {
-                $status = "Pailure";
+                $status = "Failure";
             }
 
 
