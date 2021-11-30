@@ -102,12 +102,13 @@
                         </div>
                         <div class="form-group">
                             <label for="emailcustomer">Email</label>
-                            <input type="email" class="form-control" name="emailcustomer" id="emailcustomer" aria-describedby="emailHelp" required>
+                            <input type="email" class="form-control" name="emailcustomer" id="emailcustomer" aria-describedby="emailHelp" required placeholder="example@example.com">
                             <small>Pastikan Email Anda Valid</small>
                         </div>
                         <div class="form-group">
-                            <label for="noTelp">Nomor Telpon</label>
-                            <input type="text" name="notelp" class="form-control" id="notelp" onkeypress="return event.charCode >= 48 && event.charCode <=57">
+                            <label for="noTelp">Nomor Telpon/WhatsApp</label>
+                            <input type="text" name="notelp" class="form-control" id="notelp" onkeypress="return event.charCode >= 48 && event.charCode <=57" placeholder="0812123456789">
+                            <small>Pastikan Nomer Anda Benar</small>
                             <!-- <input type="text" class="form-control" name="notelp" id="notelp" aria-describedby="notelpHelp" required> -->
                         </div>
                         <!-- Product -->
@@ -165,6 +166,7 @@
                 location.reload();
                 return false;
             }
+
             $.ajax({
                 type: 'POST',
                 url: '<?= site_url() ?>/snap/token',
@@ -229,15 +231,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="<?= base_url(); ?>assets/js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="<?= base_url(); ?>assets/vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="<?= base_url(); ?>assets/js/demo/chart-area-demo.js"></script>
-    <script src="<?= base_url(); ?>assets/js/demo/chart-pie-demo.js"></script>
-
-
 
 </body>
 
