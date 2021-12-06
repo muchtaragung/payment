@@ -150,11 +150,11 @@
                         <?php
                         $tgl = date('Y-m-d');
                         if ($detail_event['super_price'] != null && $detail_event['super_date'] != null && $detail_event['super_date'] >= $tgl) { ?>
-                            <input type="text" text name="hargaevents" id="hargaevents" value="<?= $detail_event['super_price']; ?>">
+                            <input type="text" hidden name="hargaevents" id="hargaevents" value="<?= $detail_event['super_price']; ?>">
                         <?php } elseif ($detail_event['early_price'] != null  && $detail_event['early_date'] != null && $detail_event['early_date'] >= $tgl) { ?>
-                            <input type="text" text name="hargaevents" id="hargaevents" value="<?= $detail_event['early_price']; ?>">
+                            <input type="text" hidden name="hargaevents" id="hargaevents" value="<?= $detail_event['early_price']; ?>">
                         <?php } else { ?>
-                            <input type="text" text name="hargaevents" id="hargaevents" value="<?= $detail_event['price']; ?>">
+                            <input type="text" hidden name="hargaevents" id="hargaevents" value="<?= $detail_event['price']; ?>">
                         <?php } ?>
                         <input type="text" hidden name="quantityevents" id="quantityevents" value="<?= $detail_event['quantity']; ?>">
                         <input type="text" hidden name="nama_sales" id="id_user" value="<?= $detail_event['name']; ?>">
