@@ -78,26 +78,32 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="namaEvent">Link Event (Optional)</label>
-                                            <input type="text" class="form-control" name="link_event" placeholder="https://us02web.zoom.us/j/86502819503" value="<?= set_value('link_event'); ?>">
+                                            <label for="namaEvent">Event Trainer</label>
+                                            <input type="text" class="form-control" name="trainer" placeholder="Trainers" value="<?= set_value('trainer'); ?>">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-3">
                                         <div class="form-group">
-                                            <label for="namaEvent">Tanggal Event<span style="color: red;">*</span></label>
-                                            <input type="date" class="form-control" name="date_event" value="<?= set_value('date_event'); ?>">
+                                            <label for="namaEvent">Tanggal Mulai Event<span style="color: red;">*</span></label>
+                                            <input type="date" class="form-control" name="start_date" value="<?= set_value('date_event'); ?>">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label for="namaEvent">Tanggal Selesai Event<span style="color: red;">*</span></label>
+                                            <input type="date" class="form-control" name="end_date" value="<?= set_value('date_event'); ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
                                         <div class="form-group">
                                             <label for="namaEvent">Start time<span style="color: red;">*</span></label>
                                             <input type="time" class="form-control" name="start_time" value="<?= set_value('start_time'); ?>">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-3">
                                         <div class="form-group">
                                             <label for="namaEvent">End Time<span style="color: red;">*</span></label>
                                             <input type="time" class="form-control" name="end_time" value="<?= set_value('end_time'); ?>">

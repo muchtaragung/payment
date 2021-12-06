@@ -38,11 +38,13 @@ class Event extends CI_Controller
         $event['image_event'] = $this->_upload();
         $event['description'] = $this->input->post('description');
         $event['quantity']    = 1;
-        $event['link_event']  = $this->input->post('link_event');
-        $event['date_event']  = $this->input->post('date_event');
         $event['start_time']  = $this->input->post('start_time');
+        $event['trainer']     = $this->input->post('trainer');
         $event['end_time']    = $this->input->post('end_time');
+        $event['start_date']  = $this->input->post('start_date');
+        $event['end_date']    = $this->input->post('end_date');
         $event['price']       = str_replace('.', '', $this->input->post('price'));
+        $event['early_price']       = str_replace('.', '', $this->input->post('early_price'));
         $event['id_user']     = $this->input->post('id_user');
 
         $data = $this->event->save($event);
