@@ -46,6 +46,7 @@
             <table class="table table-bordered" id="histori" cellspacing="0">
                 <thead>
                     <tr>
+                        <th>No</th>
                         <th>Order ID</th>
                         <th>Nama Pembeli</th>
                         <th>Email Pembeli</th>
@@ -61,8 +62,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($histori_pembelian as $data) : ?>
+                    <?php
+                    $no = 1;
+                    foreach ($histori_pembelian as $data) : ?>
                         <tr>
+                            <td><?= $no++ ?></td>
                             <td><?= $data['order_id']; ?></td>
                             <td><b><?= $data['nama_customer']; ?></b> </td>
                             <td><?= $data['email_customer']; ?></td>
