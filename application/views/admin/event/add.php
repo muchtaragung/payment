@@ -46,7 +46,7 @@
                             <form method="POST" action="<?= base_url('admin/event/save') ?>" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="namaEvent">Nama Event<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" name="nama_event" value="<?= set_value('nama_event'); ?>" required>
+                                    <input type="text" class="form-control" name="nama_event" value="<?= set_value('nama_event'); ?>">
                                 </div>
 
                                 <div class="form-group text-center">
@@ -57,7 +57,7 @@
 
                                 <div class="form-group">
                                     <label for="namaEvent">Image Event<span style="color: red;">*</span></label>
-                                    <input type="file" name="image_event" id="preview_gambar" class="form-control" accept=".jpg,.jpeg,.png" required />
+                                    <input type="file" name="image_event" id="preview_gambar" class="form-control" accept=".jpg,.jpeg,.png" />
                                 </div>
 
                                 <div class="form-group">
@@ -67,7 +67,7 @@
 
                                 <div class="form-group">
                                     <label for="namaEvent">Sales<span style="color: red;">*</span></label>
-                                    <select required class="select2 form-control" name="id_user" id="id_user">
+                                    <select class="select2 form-control" name="id_user" id="id_user">
                                         <option disabled selected value="">Pilih Sales</option>
                                         <?php foreach ($user as $data) { ?>
                                             <option value="<?= $data->id_user ?>"><?= $data->name ?></option>
@@ -111,12 +111,37 @@
                                     </div>
                                 </div>
 
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="namaEvent">Price<span style="color: red;">*</span></label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">Rp</span>
+                                                </div>
+                                                <input type="text" class="form-control" name="price" id="rupiah" placeholder="Masukan harga" value="<?= set_value('price'); ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="namaEvent">Early Price<span style="color: red;"></span></label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">Rp</span>
+                                                </div>
+                                                <input type="text" class="form-control" name="price" id="rupiah" placeholder="Masukan harga" value="<?= set_value('price'); ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <label for="namaEvent">Harga Event<span style="color: red;">*</span></label>
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">Rp</span>
                                     </div>
-                                    <input type="text" class="form-control" name="price" id="rupiah" placeholder="Masukan harga" value="<?= set_value('price'); ?>" required>
+                                    <input type="text" class="form-control" name="price" id="rupiah" placeholder="Masukan harga" value="<?= set_value('price'); ?>">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary btn-lg">Simpan Data</button>
@@ -128,7 +153,7 @@
 
                     <!-- <div class="form-group">
                 <label for="exampleFormControlFile1">Gambar</label>
-                <input type="file" name="gambar_thumbnail" class="form-control-file" id="exampleFormControlFile1" required>
+                <input type="file" name="gambar_thumbnail" class="form-control-file" id="exampleFormControlFile1" >
             </div> -->
 
 
