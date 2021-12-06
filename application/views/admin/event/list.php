@@ -54,7 +54,8 @@
                                             <th>No</th>
                                             <th>Nama Event</th>
                                             <th>Harga</th>
-                                            <th>Tanggal</th>
+                                            <th>Tanggal Mulai</th>
+                                            <th>Tanggal Selesai</th>
                                             <th>Nama event</th>
                                             <th>Action</th>
                                         </tr>
@@ -67,7 +68,8 @@
                                                 <td><?= $no++ ?></td>
                                                 <td><b><?= $data->nama_event ?></b></td>
                                                 <td>Rp.<?= number_format($data->price, 0, ",", "."); ?></td>
-                                                <td><?= date('d-m-Y', strtotime($data->date_event)); ?></td>
+                                                <td><?= date('d-m-Y', strtotime($data->start_date)); ?></td>
+                                                <td><?= date('d-m-Y', strtotime($data->end_date)); ?></td>
                                                 <td><?= $data->name ?></td>
                                                 <td>
                                                     <a class="btn btn-md btn-info" href="<?= base_url(); ?>admin/event/edit/<?= $data->id_event; ?>">Edit</a>
