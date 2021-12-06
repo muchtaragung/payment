@@ -47,6 +47,7 @@
                                 <div class="form-group">
                                     <label for="namaEvent">Nama Event<span style="color: red;">*</span></label>
                                     <input type="text" class="form-control" name="nama_event" value="<?= $event->nama_event ?>" required>
+                                    <input type="hidden" name="id_event" value="<?= $event->id_event ?>">
                                 </div>
 
 
@@ -83,26 +84,32 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="namaEvent">Link Event (Optional)</label>
-                                            <input type="text" class="form-control" name="link_event" placeholder="https://us02web.zoom.us/j/86502819503" value="<?= $event->link_event ?>">
+                                            <label for="namaEvent">Event Trainer</label>
+                                            <input type="text" class="form-control" name="trainer" placeholder="Trainers" value="<?= $event->trainer ?>">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-3">
                                         <div class="form-group">
-                                            <label for="namaEvent">Tanggal Event<span style="color: red;">*</span></label>
-                                            <input type="date" class="form-control" name="date_event" value="<?= $event->date_event ?>">
+                                            <label for="namaEvent">Tanggal Mulai Event<span style="color: red;">*</span></label>
+                                            <input type="date" class="form-control" name="start_date" value="<?= $event->start_date; ?>">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label for="namaEvent">Tanggal Selesai Event<span style="color: red;">*</span></label>
+                                            <input type="date" class="form-control" name="end_date" value="<?= $event->end_date ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
                                         <div class="form-group">
                                             <label for="namaEvent">Start time<span style="color: red;">*</span></label>
                                             <input type="time" class="form-control" name="start_time" value="<?= $event->start_time ?>">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-3">
                                         <div class="form-group">
                                             <label for="namaEvent">End Time<span style="color: red;">*</span></label>
                                             <input type="time" class="form-control" name="end_time" value="<?= $event->end_time ?>">
@@ -110,14 +117,53 @@
                                     </div>
                                 </div>
 
-                                <label for="namaEvent">Harga Event<span style="color: red;">*</span></label>
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Rp</span>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="namaEvent">Price<span style="color: red;">*</span></label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">Rp</span>
+                                                </div>
+                                                <input type="text" class="form-control" name="price" id="price" placeholder="Masukan harga" value="<?= $event->price ?>">
+                                            </div>
+                                        </div>
                                     </div>
-                                    <input type="text" class="form-control" name="price" id="rupiah" placeholder="Masukan harga" value="<?= $event->price ?>" required>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="namaEvent h2">Early Price<span style="color: red;"></span></label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">Rp</span>
+                                                </div>
+                                                <input type="text" class="form-control" name="early_price" id="early" placeholder="Masukan harga" value="<?= $event->early_price ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="namaEvent">Early Date<span style="color: red;">*</span></label>
+                                            <input type="date" class="form-control" name="early_date" value="<?= $event->early_date ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="namaEvent h1">Super Early Price</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">Rp</span>
+                                                </div>
+                                                <input type="text" class="form-control" name="super_price" id="super_price" placeholder="Masukan harga" value="<?= $event->super_price ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="namaEvent">Super Early Date<span style="color: red;">*</span></label>
+                                            <input type="date" class="form-control" name="super_date" value="<?= $event->super_date ?>">
+                                        </div>
+                                    </div>
                                 </div>
-                                <input type="hidden" name="id_event" value="<?= $event->id_event ?>">
                                 <button type="submit" class="btn btn-primary btn-lg">Simpan Data</button>
                             </form>
 
