@@ -112,36 +112,51 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <div class="form-group">
                                             <label for="namaEvent">Price<span style="color: red;">*</span></label>
                                             <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">Rp</span>
                                                 </div>
-                                                <input type="text" class="form-control" name="price" id="rupiah" placeholder="Masukan harga" value="<?= set_value('price'); ?>">
+                                                <input type="text" class="form-control" name="price" id="price" placeholder="Masukan harga" value="<?= set_value('price'); ?>">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <label for="namaEvent">Early Price<span style="color: red;"></span></label>
+                                            <label for="namaEvent h2">Early Price<span style="color: red;"></span></label>
                                             <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">Rp</span>
                                                 </div>
-                                                <input type="text" class="form-control" name="price" id="rupiah" placeholder="Masukan harga" value="<?= set_value('price'); ?>">
+                                                <input type="text" class="form-control" name="early_price" id="early" placeholder="Masukan harga" value="<?= set_value('price'); ?>">
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <label for="namaEvent">Harga Event<span style="color: red;">*</span></label>
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Rp</span>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="namaEvent">Early Date<span style="color: red;">*</span></label>
+                                            <input type="date" class="form-control" name="early_date" value="<?= set_value('early_date'); ?>">
+                                        </div>
                                     </div>
-                                    <input type="text" class="form-control" name="price" id="rupiah" placeholder="Masukan harga" value="<?= set_value('price'); ?>">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="namaEvent h1">Super Early Price</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">Rp</span>
+                                                </div>
+                                                <input type="text" class="form-control" name="super_price" id="super_price" placeholder="Masukan harga" value="<?= set_value('price'); ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="namaEvent">Super Early Date<span style="color: red;">*</span></label>
+                                            <input type="date" class="form-control" name="super_date" value="<?= set_value('super_date'); ?>">
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary btn-lg">Simpan Data</button>
@@ -158,10 +173,22 @@
 
 
                     <script type="text/javascript">
-                        var rupiah = document.getElementById('rupiah');
-                        rupiah.addEventListener('keyup', function(e) {
+                        var price = document.getElementById('price');
+                        price.addEventListener('keyup', function(e) {
+                            // gunakan fungsi formatprice() untuk mengubah angka yang di ketik menjadi format angka
+                            price.value = formatRupiah(this.value);
+                        });
+
+                        var early = document.getElementById('early');
+                        early.addEventListener('keyup', function(e) {
+                            // gunakan fungsi formatearly() untuk mengubah angka yang di ketik menjadi format angka
+                            early.value = formatRupiah(this.value);
+                        });
+
+                        var superprice = document.getElementById('super_price');
+                        superprice.addEventListener('keyup', function(e) {
                             // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
-                            rupiah.value = formatRupiah(this.value);
+                            superprice.value = formatRupiah(this.value);
                         });
 
                         /* Fungsi formatRupiah */
