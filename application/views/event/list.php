@@ -53,7 +53,7 @@
                                             $tgl = date('Y-m-d');
                                             // $tgl = '2021-12-07';
                                             if ($data->super_price != null && $data->super_date != null && $data->super_date >= $tgl) { ?>
-                                                <p><span class="float-right" style="background-color: green; color:white; padding:1%; border-radius:4px; font-size:15px;">IDR <?= number_format($data->super_price, 0, ",", "."); ?></span><span class="badge badge-secondary">Super Early</span></p>
+                                                <p><span class="float-right" style="background-color: green; color:white; padding:1%; border-radius:4px; font-size:15px;">IDR <?= number_format($data->super_price, 0, ",", "."); ?></span><span class="badge badge-warning">Super Early</span></p>
                                             <?php } elseif ($data->early_price != null  && $data->early_date != null && $data->early_date >= $tgl) { ?>
                                                 <p><span class="float-right" style="background-color: green; color:white; padding:1%; border-radius:4px; font-size:15px;">IDR <?= number_format($data->early_price, 0, ",", "."); ?></span><span class="badge badge-info">Early</span></p>
                                             <?php } else { ?>

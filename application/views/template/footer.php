@@ -71,11 +71,6 @@
 
 <script>
     $('#datatables').DataTable({});
-    $('#histori').DataTable({
-        "order": [
-            [4, 'desc']
-        ]
-    });
     $('.select2').select2({
         theme: 'bootstrap4',
     });

@@ -52,7 +52,7 @@ class Event extends CI_Controller
 
         $data = $this->event->save($event);
 
-        $this->session->set_flashdata('msg', 'Berhasil Membuat Data Sales');
+        $this->session->set_flashdata('msg', 'Berhasil Membuat Data Event');
         return redirect('admin/event/list');
     }
 
@@ -92,7 +92,7 @@ class Event extends CI_Controller
 
         $this->event->update($event);
 
-        $this->session->set_flashdata('msg', 'Berhasil Mengupdate Data Sales');
+        $this->session->set_flashdata('msg', 'Berhasil Mengupdate Data Event');
 
         return redirect('admin/event/list');
     }
@@ -100,7 +100,7 @@ class Event extends CI_Controller
     public function delete($id_event)
     {
         $this->event->delete(['id_event' => $id_event]);
-        $this->session->set_flashdata('msg', 'Berhasil Menghapus Data Sales');
+        $this->session->set_flashdata('msg', 'Berhasil Menghapus Data Event');
         return redirect('admin/event/list');
     }
 

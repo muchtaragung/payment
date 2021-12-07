@@ -53,7 +53,7 @@
                             <?php
                             $tgl = date('Y-m-d');
                             if ($detail_event['super_price'] != null && $detail_event['super_date'] != null && $detail_event['super_date'] >= $tgl) { ?>
-                                <p><span class="float-right" style="background-color: green; color:white; padding:1%; border-radius:4px; font-size:15px;">IDR <?= number_format($detail_event['super_price'], 0, ",", "."); ?></span><span class="badge badge-secondary">Super Early</span></p>
+                                <p><span class="float-right" style="background-color: green; color:white; padding:1%; border-radius:4px; font-size:15px;">IDR <?= number_format($detail_event['super_price'], 0, ",", "."); ?></span><span class="badge badge-warning">Super Early</span></p>
                             <?php } elseif ($detail_event['early_price'] != null  && $detail_event['early_date'] != null && $detail_event['early_date'] >= $tgl) { ?>
                                 <p><span class="float-right" style="background-color: green; color:white; padding:1%; border-radius:4px; font-size:15px;">IDR <?= number_format($detail_event['early_price'], 0, ",", "."); ?></span><span class="badge badge-info">Early</span></p>
                             <?php } else { ?>
