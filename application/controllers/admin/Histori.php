@@ -20,7 +20,7 @@ class Histori extends CI_Controller
     public function index()
     {
         $data['title']             = "Payment Histori";
-        $order               = ['id_histori_pesanan', 'DESC'];
+        $order               = ['transaction_time', 'DESC'];
         $data['histori_pembelian'] = $this->histori->get_all_order($order)->result_array();
         $data['sales']             = $this->user->get_all()->result_array();
         $this->load->view('template/header', $data);

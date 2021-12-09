@@ -46,7 +46,7 @@
                             <form method="POST" action="<?= base_url('admin/event/save') ?>" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="namaEvent">Nama Event<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" name="nama_event" value="<?= set_value('nama_event'); ?>" required>
+                                    <input type="text" class="form-control" name="nama_event" value="<?= set_value('nama_event'); ?>">
                                 </div>
 
                                 <div class="form-group text-center">
@@ -57,7 +57,7 @@
 
                                 <div class="form-group">
                                     <label for="namaEvent">Image Event<span style="color: red;">*</span></label>
-                                    <input type="file" name="image_event" id="preview_gambar" class="form-control" accept=".jpg,.jpeg,.png" required />
+                                    <input type="file" name="image_event" id="preview_gambar" class="form-control" accept=".jpg,.jpeg,.png" />
                                 </div>
 
                                 <div class="form-group">
@@ -67,7 +67,7 @@
 
                                 <div class="form-group">
                                     <label for="namaEvent">Sales<span style="color: red;">*</span></label>
-                                    <select required class="select2 form-control" name="id_user" id="id_user">
+                                    <select class="select2 form-control" name="id_user" id="id_user">
                                         <option disabled selected value="">Pilih Sales</option>
                                         <?php foreach ($user as $data) { ?>
                                             <option value="<?= $data->id_user ?>"><?= $data->name ?></option>
@@ -78,26 +78,32 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="namaEvent">Link Event (Optional)</label>
-                                            <input type="text" class="form-control" name="link_event" placeholder="https://us02web.zoom.us/j/86502819503" value="<?= set_value('link_event'); ?>">
+                                            <label for="namaEvent">Event Trainer</label>
+                                            <input type="text" class="form-control" name="trainer" placeholder="Trainers" value="<?= set_value('trainer'); ?>">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-3">
                                         <div class="form-group">
-                                            <label for="namaEvent">Tanggal Event<span style="color: red;">*</span></label>
-                                            <input type="date" class="form-control" name="date_event" value="<?= set_value('date_event'); ?>">
+                                            <label for="namaEvent">Tanggal Mulai Event<span style="color: red;">*</span></label>
+                                            <input type="date" class="form-control" name="start_date" value="<?= set_value('date_event'); ?>">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label for="namaEvent">Tanggal Selesai Event<span style="color: red;">*</span></label>
+                                            <input type="date" class="form-control" name="end_date" value="<?= set_value('date_event'); ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
                                         <div class="form-group">
                                             <label for="namaEvent">Start time<span style="color: red;">*</span></label>
                                             <input type="time" class="form-control" name="start_time" value="<?= set_value('start_time'); ?>">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-3">
                                         <div class="form-group">
                                             <label for="namaEvent">End Time<span style="color: red;">*</span></label>
                                             <input type="time" class="form-control" name="end_time" value="<?= set_value('end_time'); ?>">
@@ -105,12 +111,52 @@
                                     </div>
                                 </div>
 
-                                <label for="namaEvent">Harga Event<span style="color: red;">*</span></label>
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Rp</span>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="namaEvent">Price<span style="color: red;">*</span></label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">Rp</span>
+                                                </div>
+                                                <input type="text" class="form-control" name="price" id="price" placeholder="Masukan harga" value="<?= set_value('price'); ?>">
+                                            </div>
+                                        </div>
                                     </div>
-                                    <input type="text" class="form-control" name="price" id="rupiah" placeholder="Masukan harga" value="<?= set_value('price'); ?>" required>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="namaEvent h2">Early Price<span style="color: red;"></span></label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">Rp</span>
+                                                </div>
+                                                <input type="text" class="form-control" name="early_price" id="early" placeholder="Masukan harga" value="<?= set_value('price'); ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="namaEvent">Early Date<span style="color: red;">*</span></label>
+                                            <input type="date" class="form-control" name="early_date" value="<?= set_value('early_date'); ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="namaEvent h1">Super Early Price</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">Rp</span>
+                                                </div>
+                                                <input type="text" class="form-control" name="super_price" id="super_price" placeholder="Masukan harga" value="<?= set_value('price'); ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="namaEvent">Super Early Date<span style="color: red;">*</span></label>
+                                            <input type="date" class="form-control" name="super_date" value="<?= set_value('super_date'); ?>">
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary btn-lg">Simpan Data</button>
@@ -122,15 +168,27 @@
 
                     <!-- <div class="form-group">
                 <label for="exampleFormControlFile1">Gambar</label>
-                <input type="file" name="gambar_thumbnail" class="form-control-file" id="exampleFormControlFile1" required>
+                <input type="file" name="gambar_thumbnail" class="form-control-file" id="exampleFormControlFile1" >
             </div> -->
 
 
                     <script type="text/javascript">
-                        var rupiah = document.getElementById('rupiah');
-                        rupiah.addEventListener('keyup', function(e) {
+                        var price = document.getElementById('price');
+                        price.addEventListener('keyup', function(e) {
+                            // gunakan fungsi formatprice() untuk mengubah angka yang di ketik menjadi format angka
+                            price.value = formatRupiah(this.value);
+                        });
+
+                        var early = document.getElementById('early');
+                        early.addEventListener('keyup', function(e) {
+                            // gunakan fungsi formatearly() untuk mengubah angka yang di ketik menjadi format angka
+                            early.value = formatRupiah(this.value);
+                        });
+
+                        var superprice = document.getElementById('super_price');
+                        superprice.addEventListener('keyup', function(e) {
                             // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
-                            rupiah.value = formatRupiah(this.value);
+                            superprice.value = formatRupiah(this.value);
                         });
 
                         /* Fungsi formatRupiah */

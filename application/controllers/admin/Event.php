@@ -38,16 +38,21 @@ class Event extends CI_Controller
         $event['image_event'] = $this->_upload();
         $event['description'] = $this->input->post('description');
         $event['quantity']    = 1;
-        $event['link_event']  = $this->input->post('link_event');
-        $event['date_event']  = $this->input->post('date_event');
+        $event['trainer']     = $this->input->post('trainer');
         $event['start_time']  = $this->input->post('start_time');
         $event['end_time']    = $this->input->post('end_time');
+        $event['start_date']  = $this->input->post('start_date');
+        $event['end_date']    = $this->input->post('end_date');
         $event['price']       = str_replace('.', '', $this->input->post('price'));
+        $event['early_price'] = str_replace('.', '', $this->input->post('early_price'));
+        $event['early_date']  = $this->input->post('early_date');
+        $event['super_price'] = str_replace('.', '', $this->input->post('super_price'));
+        $event['super_date']  = $this->input->post('super_date');
         $event['id_user']     = $this->input->post('id_user');
 
         $data = $this->event->save($event);
 
-        $this->session->set_flashdata('msg', 'Berhasil Membuat Data Sales');
+        $this->session->set_flashdata('msg', 'Berhasil Membuat Data Event');
         return redirect('admin/event/list');
     }
 
@@ -73,16 +78,21 @@ class Event extends CI_Controller
         $event['image_event'] = $foto;
         $event['description'] = $this->input->post('description');
         $event['quantity']    = 1;
-        $event['link_event']  = $this->input->post('link_event');
-        $event['date_event']  = $this->input->post('date_event');
+        $event['trainer']     = $this->input->post('trainer');
         $event['start_time']  = $this->input->post('start_time');
         $event['end_time']    = $this->input->post('end_time');
+        $event['start_date']  = $this->input->post('start_date');
+        $event['end_date']    = $this->input->post('end_date');
         $event['price']       = str_replace('.', '', $this->input->post('price'));
+        $event['early_price'] = str_replace('.', '', $this->input->post('early_price'));
+        $event['early_date']  = $this->input->post('early_date');
+        $event['super_price'] = str_replace('.', '', $this->input->post('super_price'));
+        $event['super_date']  = $this->input->post('super_date');
         $event['id_user']     = $this->input->post('id_user');
 
         $this->event->update($event);
 
-        $this->session->set_flashdata('msg', 'Berhasil Mengupdate Data Sales');
+        $this->session->set_flashdata('msg', 'Berhasil Mengupdate Data Event');
 
         return redirect('admin/event/list');
     }
@@ -90,7 +100,7 @@ class Event extends CI_Controller
     public function delete($id_event)
     {
         $this->event->delete(['id_event' => $id_event]);
-        $this->session->set_flashdata('msg', 'Berhasil Menghapus Data Sales');
+        $this->session->set_flashdata('msg', 'Berhasil Menghapus Data Event');
         return redirect('admin/event/list');
     }
 

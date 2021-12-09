@@ -50,7 +50,23 @@
                             <p style="font-weight: 700; color:black;"><?= $detail_event['nama_event']; ?></p>
                         </div>
                         <div class="col-md-6">
-                            <p><span class="float-right" style="background-color: green; color:white; padding:1%; border-radius:4px; font-size:15px;">IDR <?= number_format($detail_event['price'], 0, ",", "."); ?></span></p>
+                            <?php
+                            $tgl = date('Y-m-d');
+                            if ($detail_event['super_price'] != null && $detail_event['super_date'] != null && $detail_event['super_date'] >= $tgl) { ?>
+                                <p><span class="float-right" style="background-color: green; color:white; padding:1%; border-radius:4px; font-size:15px;">IDR <?= number_format($detail_event['super_price'], 0, ",", "."); ?></span><span class="badge badge-warning">Super Early</span></p>
+                            <?php } elseif ($detail_event['early_price'] != null  && $detail_event['early_date'] != null && $detail_event['early_date'] >= $tgl) { ?>
+                                <p><span class="float-right" style="background-color: green; color:white; padding:1%; border-radius:4px; font-size:15px;">IDR <?= number_format($detail_event['early_price'], 0, ",", "."); ?></span><span class="badge badge-info">Early</span></p>
+                            <?php } else { ?>
+                                <p><span class="float-right" style="background-color: green; color:white; padding:1%; border-radius:4px; font-size:15px;">IDR <?= number_format($detail_event['price'], 0, ",", "."); ?></span></p>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <div class="row" style="color:black">
+                        <div class="col-md-6">
+                            <p>Coach </p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="float-right"><?= $detail_event['trainer']; ?></p>
                         </div>
                     </div>
                     <button class="btn btn-outline-primary btn-block" style="margin-bottom: 5%;" data-toggle="modal" data-target="#showDeskripsi<?= $detail_event['id_event']; ?>">Deskripsi produk</button>
@@ -65,10 +81,18 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <p>Tanggal </p>
+                                <p>Tanggal Mulai</p>
                             </div>
                             <div class="col-md-6">
-                                <p class="float-right"><?= date('d F Y', strtotime($detail_event['date_event'])); ?></p>
+                                <p class="float-right"><?= date('d F Y', strtotime($detail_event['start_date'])); ?></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Tanggal Selesai</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="float-right"><?= date('d F Y', strtotime($detail_event['end_date'])); ?></p>
                             </div>
                         </div>
                         <div class="row">
@@ -85,7 +109,15 @@
                                 <p>Harga </p>
                             </div>
                             <div class="col-md-6">
-                                <p class="float-right">Rp. <?php echo number_format($detail_event['price'], 0, ",", "."); ?></p>
+                                <?php
+                                $tgl = date('Y-m-d');
+                                if ($detail_event['super_price'] != null && $detail_event['super_date'] != null && $detail_event['super_date'] >= $tgl) { ?>
+                                    <p class="float-right">Rp. <?php echo number_format($detail_event['super_price'], 0, ",", "."); ?></p>
+                                <?php } elseif ($detail_event['early_price'] != null  && $detail_event['early_date'] != null && $detail_event['early_date'] >= $tgl) { ?>
+                                    <p class="float-right">Rp. <?php echo number_format($detail_event['early_price'], 0, ",", "."); ?></p>
+                                <?php } else { ?>
+                                    <p class="float-right">Rp. <?php echo number_format($detail_event['price'], 0, ",", "."); ?></p>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -114,11 +146,22 @@
                         <!-- Product -->
                         <input type="text" hidden name="idevents" id="idevents" value="<?= $detail_event['id_event'] ?>">
                         <input type="text" hidden name="namaevents" id="namaevents" value="<?= $detail_event['nama_event'] ?>">
-                        <input type="text" hidden name="hargaevents" id="hargaevents" value="<?= $detail_event['price']; ?>">
+                        <!-- <input type="text" hidden name="hargaevents" id="hargaevents" value="<?= $detail_event['price']; ?>"> -->
+                        <?php
+                        $tgl = date('Y-m-d');
+                        if ($detail_event['super_price'] != null && $detail_event['super_date'] != null && $detail_event['super_date'] >= $tgl) { ?>
+                            <input type="text" hidden name="hargaevents" id="hargaevents" value="<?= $detail_event['super_price']; ?>">
+                            <input type="text" hidden name="price" id="id_user" value="<?= $detail_event['super_price']; ?>">
+                        <?php } elseif ($detail_event['early_price'] != null  && $detail_event['early_date'] != null && $detail_event['early_date'] >= $tgl) { ?>
+                            <input type="text" hidden name="hargaevents" id="hargaevents" value="<?= $detail_event['early_price']; ?>">
+                            <input type="text" hidden name="price" id="id_user" value="<?= $detail_event['early_price']; ?>">
+                        <?php } else { ?>
+                            <input type="text" hidden name="hargaevents" id="hargaevents" value="<?= $detail_event['price']; ?>">
+                            <input type="text" hidden name="price" id="id_user" value="<?= $detail_event['price']; ?>">
+                        <?php } ?>
                         <input type="text" hidden name="quantityevents" id="quantityevents" value="<?= $detail_event['quantity']; ?>">
                         <input type="text" hidden name="nama_sales" id="id_user" value="<?= $detail_event['name']; ?>">
                         <input type="text" hidden name="nama_event" id="id_user" value="<?= $detail_event['nama_event']; ?>">
-                        <input type="text" hidden name="price" id="id_user" value="<?= $detail_event['price']; ?>">
 
                         <button type="submit" class="btn btn-primary btn-block" id="pay-button">Pay</button>
                     </form>
