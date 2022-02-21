@@ -34,7 +34,7 @@ class Event extends CI_Controller
     public function save()
     {
         $event['nama_event']  = $this->input->post('nama_event');
-        $event['slug_event']  = str_replace(' ', '-', strtolower($event['nama_event']));
+        $event['slug_event']  = url_title($event['nama_event']);
         $event['image_event'] = $this->_upload();
         $event['description'] = $this->input->post('description');
         $event['quantity']    = 1;
@@ -74,7 +74,7 @@ class Event extends CI_Controller
         }
         $event['id_event'] = $this->input->post('id_event');
         $event['nama_event']  = $this->input->post('nama_event');
-        $event['slug_event']  = str_replace(' ', '-', strtolower($event['nama_event']));
+        $event['slug_event']  = url_title($event['nama_event']);
         $event['image_event'] = $foto;
         $event['description'] = $this->input->post('description');
         $event['quantity']    = 1;
