@@ -30,11 +30,11 @@
 			<span>Event</span></a>
 	</li>
 
-	<li class="nav-item">
+	<!-- <li class="nav-item">
 		<a class="nav-link" href="<?= site_url('admin/histori') ?>">
 			<i class="fas fa-money-check-alt"></i>
 			<span>Histori Payment</span></a>
-	</li>
+	</li> -->
 
 
 	<!-- Divider -->

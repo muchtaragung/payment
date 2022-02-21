@@ -64,11 +64,11 @@
                     <p class="text-center">
                         Selamat datang di <br><b> PAYMENT KORPORA CONSULTING</b><br>Untuk melanjutkan pembayaran silahkan pilih sales Anda
                     </p>
-                    <div class="text-center mb-3">
+                    <!-- <div class="text-center mb-3">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             <i class="fas fa-search"></i> Cek Pemesanan
                         </button>
-                    </div>
+                    </div> -->
                 </div>
                 <?php foreach ($user as $data) : ?>
                     <div class="card-body" style="margin-bottom:-7%;">
